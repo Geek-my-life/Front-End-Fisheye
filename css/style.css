@@ -47,3 +47,58 @@ h1 {
   height: 200px;
   width: 200px;
 }
+
+.card-profils{
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  scale: 1;
+}
+
+.card-profils:hover {
+  scale: 1.1;
+}
+
+.card-profils a{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
+.h2name {
+  margin: 20px 0 0;
+  color: #D3573C;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 47px;
+}
+
+.imguser {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+}
+.h3city {
+  margin: 0;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 47px;
+}
+.card-profils p{
+  margin: 0 0 3px;
+  text-align: center;
+}
+
+.card-profils p:nth-of-type(1) {
+  color: #901C1C;
+  font-size: 15px;
+}
+
+.card-profils p:nth-of-type(2) {
+  font-size: 15px;
+}
