@@ -94,11 +94,11 @@ h1 {
   text-align: center;
 }
 
-.card-profils p:nth-of-type(1) {
+.tag {
   color: #901C1C;
   font-size: 15px;
 }
 
-.card-profils p:nth-of-type(2) {
+.price {
   font-size: 15px;
 }
