@@ -7,11 +7,11 @@ function photographerFactory(data) {
     const article = document.createElement("article");
     article.className = "card-profils";
 
-    const id = document.createElement("a");
-    id.href = "photographer.html?photographer=${id}";
-    id.ariaLabel = name;
-    id.setAttribute("onkeydown", "openlink(event");
-    id.className = "name";
+    const linkId = document.createElement("a");
+    linkId.href = "https://photographer.html?photographer=${id}";
+    linkId.ariaLabel = name;
+    linkId.setAttribute("onkeydown", "openlink(event");
+    linkId.className = "name";
 
     const img = document.createElement("img");
     img.setAttribute("src", picture);
@@ -35,9 +35,9 @@ function photographerFactory(data) {
     pricePerDay.textContent = price + "€/jour";
     pricePerDay.className = "price";
 
-    id.appendChild(img);
-    id.appendChild(h2);
-    article.appendChild(id);
+    linkId.appendChild(img);
+    linkId.appendChild(h2);
+    article.appendChild(linkId);
     article.appendChild(location);
     article.appendChild(tag);
     article.appendChild(pricePerDay);
