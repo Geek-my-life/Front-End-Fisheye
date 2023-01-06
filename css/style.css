@@ -72,6 +72,7 @@ h1 {
   font-weight: normal;
   font-size: 20px;
   line-height: 47px;
+  color: #901c1c;
 }
 .card-profils p {
   margin: 0 0 3px;
@@ -79,10 +80,10 @@ h1 {
 }
 
 .tag {
-  color: #901c1c;
   font-size: 15px;
 }
 
 .price {
-  font-size: 15px;
+  font-size: 12px;
+  color: #757575;
 }
