@@ -4,11 +4,12 @@ function photographerPage(data) {
     const picture = `img/Profils/${portrait}`;
   
     function getUserCardPage() {
-      const header = document.querySelector(".photograph-header");
-  
       const article = document.createElement("article");
-      article.className = "card-name";
+      article.className = "card_head";
   
+      const card = document.createElement("div");
+      article.className = "card_name";
+
       const h2 = document.createElement("h2");
       h2.textContent = name;
       h2.className = "h2name";
@@ -31,14 +32,14 @@ function photographerPage(data) {
       img.ariaLabel = name;
       img.className = "imguser";
   
-      article.appendChild(h2);
-      article.appendChild(location);
-      article.appendChild(tag);
-      header.appendChild(article);
-      header.appendChild(contactMe);
-      header.appendChild(img);
+      card.appendChild(h2);
+      card.appendChild(location);
+      card.appendChild(tag);
+      article.appendChild(card);
+      article.appendChild(contactMe);
+      article.appendChild(img);
   
-      return header;
+      return article;
     }
     return { getUserCardPage };
   }
