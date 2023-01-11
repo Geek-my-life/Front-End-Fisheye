@@ -1,6 +1,7 @@
-.bground {
+#bground {
     display: none;
     position: relative;
+    z-index: 1;
 }
 .close {
     width: 30px;
@@ -11,12 +12,15 @@
 .card_name {
     height: 300px;
     margin: 0 100px;
+    padding: 0 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
 }
-
+.button_none {
+    display: none;
+}
 .contact_button {
     font-size: 20px;
     font-weight: bold;
@@ -35,6 +39,9 @@
 .contact_button:hover {
     background-color: #3876ac;
 
+}
+.media_work {
+    width: 100%;
 }
 .modal {
     border-radius: 5px;
