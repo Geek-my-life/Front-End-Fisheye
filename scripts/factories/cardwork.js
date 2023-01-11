@@ -1,18 +1,31 @@
 function photographerWork(data) {
-    const { id, photographerId, title, image, likes, date, price } = data;
+    const { id, photographerId, title, image, likes, date, price, video } = data;
 
-    const picture = `img/Profils/${image}`;
+    const picture = `img/Photo/${image}`;
+    const videoMedia = `img/Photo/${video}`;
+
+    function getWork(image, video, picture, videoMedia, title) {
+      let media;
+  
+      if(image){
+          media = document.createElement("img");
+          media.src = picture;
+          media.alt = title;
+      } else if(video) {
+          media = document.createElement("video");
+          media.src = videoMedia;
+          media.title = title;
+      }
+      media.className = "media_work";
+      return media;
+  }
 
     function getUserCardWork() {
         
       const article = document.createElement("article");
       article.className = "card_work";
   
-      const img = document.createElement("img");
-      img.setAttribute("src", picture);
-      img.setAttribute("alt", image);
-      img.ariaLabel = image;
-      img.className = "card_work_img";
+      const media = getWork();
 
       const titleBlock = document.createElement("div");
       titleBlock.className = "titleBlock";
@@ -49,7 +62,7 @@ function photographerWork(data) {
 
       titleBlock.appendChild(title);
       titleBlock.appendChild(like);
-      article.appendChild(img);
+      article.appendChild(media);
       article.appendChild(titleBlock);
       article.appendChild(workId);
       article.appendChild(photographerPageId);
