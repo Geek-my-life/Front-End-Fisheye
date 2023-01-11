@@ -18,9 +18,8 @@ function photographerPage(data) {
       location.textContent = city + ", " + country;
       location.className = "h3city";
       
-      const contactMe = document.createElement("button");
-      contactMe.innerHTML = "Contactez-Moi";
-      contactMe.className = "contact_button";
+      const contactMe = document.querySelector(".button_none");
+      contactMe.classList.remove("button_none");
 
       const tag = document.createElement("p");
       tag.textContent = tagline;
