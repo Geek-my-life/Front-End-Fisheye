@@ -20,57 +20,63 @@
       </a>
     </header>
     <main id="main">
-      <div class="photograph-header"></div>
+      <div>
+        <div class="photograph-header"></div>
+        <button class="button_none contact_button">Contactez-Moi</button>
+      </div>
       <div class="photograph-work"></div>
     </main>
 
-    <div class="bground">
-      <div class="modal">
-        <header>
-          <h2>Contactez-moi</h2>
-          <div class="contact_name"></div>
-          <img src="img/close.svg" class="close" />
-        </header>
-        <form>
-          <div>
-            <label>Prénom</label>
-            <input
-              class="text-control"
-              type="text"
-              id="first"
-              name="first"
-              minlength="2"
-              required
-            />
-          </div>
-          <div>
-            <label>Nom</label>
-            <input
-              class="text-control"
-              type="text"
-              id="last"
-              name="last"
-              minlength="2"
-              required
-            />
-          </div>
-          <div>
-            <label>Email</label>
-            <input
-              class="text-control"
-              type="email"
-              id="email"
-              name="email"
-              minlength="2"
-              required
-            />
-          </div>
-          <div>
-            <label>Votre message</label>
-            <textarea name="message" id="textarea"></textarea>
-          </div>
-        </form>
-        <button class="send_button">Envoyer</button>
+    <div id="bground">
+      <div class="content">
+        <div class="modal">
+          <header>
+            <h2>Contactez-moi</h2>
+            <div class="contact_name"></div>
+            <img src="img/close.svg" class="close" />
+          </header>
+          <form>
+            <div>
+              <label>Prénom</label>
+              <input
+                class="text-control"
+                type="text"
+                id="first"
+                name="first"
+                minlength="2"
+                required
+              />
+            </div>
+            <div>
+              <label>Nom</label>
+              <input
+                class="text-control"
+                type="text"
+                id="last"
+                name="last"
+                minlength="2"
+                required
+              />
+            </div>
+            <div>
+              <label>Email</label>
+              <input
+                class="text-control"
+                type="email"
+                id="email"
+                name="email"
+                minlength="2"
+                required
+              />
+            </div>
+            <div>
+              <label>Votre message</label>
+              <textarea name="message" id="textarea"></textarea>
+            </div>
+          </form>
+          <button class="send_button">Envoyer</button>
+        </div>
+  
       </div>
     </div>
     <script src="/scripts/factories/cardpages.js"></script>
