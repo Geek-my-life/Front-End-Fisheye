@@ -18,22 +18,21 @@ async function displayData(photographers) {
     });
 }
 
-async function displayMediaData(medias) {
+async function displayMediaData(media) {
   const mediaSection = document.querySelector(".photograph-work");
-  medias
-    .filter((media) => media.photographerId == pageId)
-    .forEach((media) => {
-      const mediaModel = photographerWork(media);
-      const userWorkDOM = mediaModel.getUserCardWork();
-      mediaSection.appendChild(userWorkDOM);
-    });
+  const mediaById = media.filter(function(el){
+    return el.photographerId == pageId;
+  });
+  const mediaModel = photographerWork(mediaById);
+  const userWorkDOM = mediaModel.getUserCardWork();
+  mediaSection.appendChild(userWorkDOM);
 }
 
 async function init() {
   // récupère les datas des photographes
-  const {photographers, medias} = await getPhotographers();
+  const {photographers, media} = await getPhotographers();
   displayData(photographers);
-  displayMediaData(medias);
+  displayMediaData(media);
 }
 
 init();
