@@ -1,4 +1,4 @@
-const modalbg = document.querySelector(".bground");
+const modalbg = document.getElementById("bground");
 const contactButton = document.querySelector(".contact_button");
 const closeButton = document.querySelector(".close")
 
