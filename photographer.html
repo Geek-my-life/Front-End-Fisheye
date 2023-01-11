@@ -2,38 +2,77 @@
 <html>
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="img/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <title>Fisheye - photographe</title>
   </head>
   <body>
     <header>
-      <a href="index.html" aria-label="Fisheye Homepage" onkeydown="openlink(event)">
-        <img src="img/logo.png" class="logo" alt="Fisheye Homepage"/>
+      <a
+        href="index.html"
+        aria-label="Fisheye Homepage"
+      >
+        <img src="img/logo.png" class="logo" alt="Fisheye Homepage" />
       </a>
     </header>
     <main id="main">
-      <div class="photograph-header">
-      </div>
+      <div class="photograph-header"></div>
       <div class="photograph-work"></div>
     </main>
 
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
+    <div class="bground">
+      <div class="modal">
+        <header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <div class="contact_name"></div>
+          <img src="img/close.svg" class="close" />
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
+        <form>
+          <div>
+            <label>Prénom</label>
+            <input
+              class="text-control"
+              type="text"
+              id="first"
+              name="first"
+              minlength="2"
+              required
+            />
+          </div>
+          <div>
+            <label>Nom</label>
+            <input
+              class="text-control"
+              type="text"
+              id="last"
+              name="last"
+              minlength="2"
+              required
+            />
+          </div>
+          <div>
+            <label>Email</label>
+            <input
+              class="text-control"
+              type="email"
+              id="email"
+              name="email"
+              minlength="2"
+              required
+            />
+          </div>
+          <div>
+            <label>Votre message</label>
+            <textarea name="message" id="textarea"></textarea>
+          </div>
+        </form>
+        <button class="send_button">Envoyer</button>
+      </div>
+    </div>
     <script src="/scripts/factories/cardpages.js"></script>
     <script src="/scripts/factories/cardwork.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
