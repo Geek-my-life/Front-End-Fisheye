@@ -1,25 +1,24 @@
 function photographerWork(data) {
   const { id, photographerId, title, image, likes, date, price, video } = data;
 
-  const picture = `img/Photo/${image}`;
-  const videoMedia = `img/Photo/${video}`;
+  const picture = `img/Photos/${image}`;
+  const videoMedia = `img/Photos/${video}`;
 
   function getWork() {
     console.log(data);
     let media;
 
-    data.forEach(function(element) {
-        if(element.image){
-            media = document.createElement("img");
-            media.src = element.picture;
-            media.alt = element.title;
-        } else if(element.video) {
-            media = document.createElement("video");
-            media.src = element.videoMedia;
-            media.title = element.title;
-        }
-    });
-    media.className = "media_work";
+    if(data.image){
+        media = document.createElement("img");
+        media.src = picture;
+        media.alt = title;
+        media.className = "work_img";
+    } else if(data.video) {
+        media = document.createElement("video");
+        media.src = videoMedia;
+        media.title = title;
+        media.className = "work_video";
+    }
     return media;
 }
 
@@ -27,8 +26,10 @@ function photographerWork(data) {
     const article = document.createElement("article");
     article.className = "card_work";
 
+    const mediaBlock = document.createElement("div");
+    mediaBlock.className = "media_work";
+
     const media = getWork();
-    console.log(media);
 
     const titleBlock = document.createElement("div");
     titleBlock.className = "titleBlock";
@@ -50,7 +51,7 @@ function photographerWork(data) {
 
     const photographerPageId = document.createElement("p");
     photographerPageId.textContent = photographerId;
-    photographerPageId.className = "id_work";
+    photographerPageId.className = "profils_id_work";
     photographerPageId.ariaLabel = photographerId;
 
     const dateImg = document.createElement("p");
@@ -65,7 +66,8 @@ function photographerWork(data) {
 
     titleBlock.appendChild(titleImg);
     titleBlock.appendChild(like);
-    article.appendChild(media);
+    mediaBlock.appendChild(media);
+    article.appendChild(mediaBlock);
     article.appendChild(titleBlock);
     article.appendChild(workId);
     article.appendChild(photographerPageId);
