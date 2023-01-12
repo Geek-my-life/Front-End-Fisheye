@@ -9,10 +9,9 @@ const pageId = params.get("photographer");
 
 async function displayData(photographers) {
   const photographersSection = document.querySelector(".photograph-header");
-  photographers
-    .filter((photographer) => photographer.id == pageId)
-    .forEach((photographer) => {
-      const photographerModel = photographerPage(photographer);
+  const photographerById = photographers.filter((photographer) => photographer.id == pageId)
+    .forEach((photographerById) => {
+      const photographerModel = photographerPage(photographerById);
       const userCardDOM = photographerModel.getUserCardPage();
       photographersSection.appendChild(userCardDOM);
     });
@@ -20,12 +19,13 @@ async function displayData(photographers) {
 
 async function displayMediaData(media) {
   const mediaSection = document.querySelector(".photograph-work");
-  const mediaById = media.filter(function(el){
-    return el.photographerId == pageId;
+  const mediaById = media.filter((media) => media.photographerId == pageId)
+  .forEach((mediaById) => {
+    const mediaModel = photographerWork(mediaById);
+    const userWorkDOM = mediaModel.getUserCardWork();
+    mediaSection.appendChild(userWorkDOM);
   });
-  const mediaModel = photographerWork(mediaById);
-  const userWorkDOM = mediaModel.getUserCardWork();
-  mediaSection.appendChild(userWorkDOM);
+  
 }
 
 async function init() {
