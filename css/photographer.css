@@ -1,125 +1,156 @@
+body {
+  font-family: "DM Sans", sans-serif;
+  margin: 0;
+  max-width: 1400px;
+}
+
 #bground {
-    display: none;
-    position: relative;
-    z-index: 1;
+  display: none;
+  position: relative;
+  z-index: 1;
 }
 .close {
-    width: 30px;
+  width: 30px;
 }
 .close:hover {
-    transform: rotate(-20deg);
+  transform: rotate(-20deg);
 }
+
 .card_name {
-    height: 300px;
-    margin: 0 100px;
-    padding: 0 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
+  height: 300px;
+  margin: 0 100px;
+  padding: 0 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
 }
 .button_none {
-    display: none;
+  display: none;
 }
 .contact_button {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    width: 170px;
-    height: 70px;
-    border: none;
-    background-color: #901C1C;
-    border-radius: 5px;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  width: 170px;
+  height: 70px;
+  border: none;
+  background-color: #901c1c;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .contact_button:hover {
-    background-color: #3876ac;
-
+  background-color: #3876ac;
+}
+.photograph-work {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 100px;
+}
+.card_work {
+  width: 200px;
+  height: 300px;
 }
 .media_work {
-    width: 100%;
+  width: 100px;
+  height: 200px;
+  object-fit: contain;
+}
+.media_work img {
+  height: 100%;
+}
+.work_img {
+  object-fit: contain;
+}
+.media_work video {
+  height: 100%;
+}
+.work_video {
+  object-fit: contain;
 }
 .modal {
-    border-radius: 5px;
-    background-color: #DB8876;
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 35px;
-    margin: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  border-radius: 5px;
+  background-color: #db8876;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 35px;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .modal header {
-    justify-content: space-between;
-    width: 100%;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .modal header img {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .modal header h2 {
-    font-size: 50px;
-    font-weight: normal;
-    text-align: center;
+  font-size: 50px;
+  font-weight: normal;
+  text-align: center;
 }
 .modal header .contact_name {
-    font-size: 50px;
-    font-weight: normal;
-    text-align: center;
+  font-size: 50px;
+  font-weight: normal;
+  text-align: center;
 }
 form {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 form label {
-    color: #312E2E;
-    font-size: 24px;
+  color: #312e2e;
+  font-size: 24px;
 }
 
 form div {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: self-start;
-    margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: self-start;
+  margin-bottom: 10px;
 }
 
 form input {
-    width: 100%;
-    height: 50px;
-    border: none;
-    border-radius: 5px;
-    font-size: 24px;
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  font-size: 24px;
 }
 form textarea {
-    width: 100%;
-    height: 150px;
-    border: none;
-    border-radius: 5px;
-    font-size: 24px;
+  width: 100%;
+  height: 150px;
+  border: none;
+  border-radius: 5px;
+  font-size: 24px;
 }
 .send_button {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    width: 170px;
-    height: 70px;
-    border: none;
-    background-color: #901C1C;
-    border-radius: 5px;
-    cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  width: 170px;
+  height: 70px;
+  border: none;
+  background-color: #901c1c;
+  border-radius: 5px;
+  cursor: pointer;
 }
