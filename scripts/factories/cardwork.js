@@ -3,6 +3,7 @@ function photographerWork(data) {
 
   const picture = `img/Photos/${image}`;
   const videoMedia = `img/Photos/${video}`;
+  const heart = `img/heart.svg`;
 
   function getWork() {
     console.log(data);
@@ -39,33 +40,48 @@ function photographerWork(data) {
     titleImg.className = "title";
     titleImg.ariaLabel = title;
 
+    const likeblock = document.createElement("div");
+    likeblock.className = "lineblock";
+
     const like = document.createElement("h3");
-    like.textContent = likes + " ";
+    like.textContent = likes;
     like.className = "likes";
     like.ariaLabel = likes;
+
+    const heartBlock = document.createElement("img");
+    heartBlock.setAttribute("src", heart);
+    heartBlock.setAttribute("alt", "like");
+    heartBlock.ariaLabel = "like";
+    heartBlock.className = "heart_work";
 
     const workId = document.createElement("p");
     workId.textContent = id;
     workId.className = "id_work";
     workId.ariaLabel = id;
+    workId.style.display = "none";
 
     const photographerPageId = document.createElement("p");
     photographerPageId.textContent = photographerId;
     photographerPageId.className = "profils_id_work";
     photographerPageId.ariaLabel = photographerId;
+    photographerPageId.style.display = "none";
 
     const dateImg = document.createElement("p");
     dateImg.textContent = date;
     dateImg.className = "date_work";
     dateImg.ariaLabel = date;
+    dateImg.style.display = "none";
 
     const workPrice = document.createElement("p");
     workPrice.textContent = price;
     workPrice.className = "price_work";
     workPrice.ariaLabel = price;
+    workPrice.style.display = "none";
 
+    likeblock.appendChild(like);
+    likeblock.appendChild(heartBlock);
     titleBlock.appendChild(titleImg);
-    titleBlock.appendChild(like);
+    titleBlock.appendChild(likeblock);
     mediaBlock.appendChild(media);
     article.appendChild(mediaBlock);
     article.appendChild(titleBlock);
