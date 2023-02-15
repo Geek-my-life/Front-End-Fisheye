@@ -6,19 +6,22 @@ function photographerWork(data) {
   const heart = `img/heart.svg`;
 
   function getWork() {
-    console.log(data);
     let media;
 
     if(data.image){
         media = document.createElement("img");
         media.src = picture;
         media.alt = title;
-        media.className = "work_img";
+        media.title = title;
+        media.ariaLabel = title;
+        media.className = "work_img work_lightbox";
     } else if(data.video) {
         media = document.createElement("video");
         media.src = videoMedia;
+        media.alt = title;
+        media.ariaLabel = title;
         media.title = title;
-        media.className = "work_video";
+        media.className = "work_video work_lightbox";
     }
     return media;
 }
@@ -41,7 +44,8 @@ function photographerWork(data) {
     titleImg.ariaLabel = title;
 
     const likeblock = document.createElement("div");
-    likeblock.className = "lineblock";
+    likeblock.className = "likeblock";
+    likeblock.setAttribute("onclick", 'like(event)');
 
     const like = document.createElement("h3");
     like.textContent = likes;
@@ -51,7 +55,7 @@ function photographerWork(data) {
     const heartBlock = document.createElement("img");
     heartBlock.setAttribute("src", heart);
     heartBlock.setAttribute("alt", "like");
-    heartBlock.ariaLabel = "like";
+    heartBlock.ariaLabel = likes;
     heartBlock.className = "heart_work";
 
     const workId = document.createElement("p");
@@ -93,4 +97,4 @@ function photographerWork(data) {
     return article;
   }
   return { getUserCardWork };
-}
+};

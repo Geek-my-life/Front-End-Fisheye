@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="/scripts/factories/cardpages.js"></script>
+    <script src="/scripts/factories/cardwork.js"></script>
+    <script src="/scripts/pages/photographer.js"></script>
+    <script src="https://kit.fontawesome.com/ab907928cc.js" crossorigin="anonymous"></script>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="img/favicon.png" />
@@ -10,80 +14,109 @@
     />
     <title>Fisheye - photographe</title>
   </head>
-  <body>
+  <body class="body">
     <header>
-      <a
-        href="index.html"
-        aria-label="Fisheye Homepage"
-      >
+      <a href="index.html" aria-label="Fisheye Homepage" role="retour homepage">
         <img src="img/logo.png" class="logo" alt="Fisheye Homepage" />
       </a>
     </header>
-    <main id="main">
+    <main id="main" aria-hidden="false">
       <div>
         <div class="photograph-header"></div>
-        <button class="button_none contact_button">Contactez-Moi</button>
+        <button class="button_none contact_button" aria-label="bouton contactez moi" role="bouton">Contactez-Moi</button>
       </div>
-      <div class="photograph-work">
+      <div class="photograph-work" aria-label="portfolio"></div>
+      <div class="likes_price">
+        <div class="totalLikeBox">
+          <div class="totalLikesNumber"></div>
+          <img src="img/heartBlack.svg" alt="like">
+        </div>
+        <div class="priceBox"></div>
       </div>
-      <div class="likes_price">bonsoir</div>
-      <div id="lightbox">bonjour</div>
+      <div id="lightbox">
+        <i class="fa-solid fa-xmark close"></i>
+        <i class="fa-solid fa-chevron-left chevron"></i>
+        <div class="card_lightbox"></div>
+        <i class="fa-solid fa-chevron-right chevron"></i>
+      </div>
     </main>
 
-    <div id="bground">
-        <div class="modal">
-          <header>
-            <h2>Contactez-moi</h2>
-            <div class="contact_name"></div>
-            <img src="img/close.svg" class="close" />
-          </header>
-          <form>
-            <div>
-              <label>Prénom</label>
-              <input
-                class="text-control"
-                type="text"
-                id="first"
-                name="first"
-                minlength="2"
-                required
-              />
-            </div>
-            <div>
-              <label>Nom</label>
-              <input
-                class="text-control"
-                type="text"
-                id="last"
-                name="last"
-                minlength="2"
-                required
-              />
-            </div>
-            <div>
-              <label>Email</label>
-              <input
-                class="text-control"
-                type="email"
-                id="email"
-                name="email"
-                minlength="2"
-                required
-              />
-            </div>
-            <div>
-              <label>Votre message</label>
-              <textarea name="message" id="textarea"></textarea>
-            </div>
-          </form>
-          <button class="send_button">Envoyer</button>
-        </div>
-  
+    <div id="bground" aria-hidden="true">
+      <div class="modal">
+        <header>
+          <div class="contactMe" aria-label="Contactez-moi">Contactez-moi</div>
+          <div class="contact_name"></div>
+          <i class="fa-solid fa-xmark close_modal" aria-label="fermeture"></i>
+        </header>
+        <form id="form">
+          <div>
+            <div
+                class="formData"
+                data-error="Vous devez entrer 2 caractères ou plus."
+                data-error-visible="false"
+              >
+            <label aria-label="prénom">Prénom</label>
+            <input
+              class="text-control"
+              aria-label="zone de saisie du prénom"
+              type="text"
+              id="first"
+              name="first"
+              minlength="2"
+              required
+              aria-required="true"
+            />
+          </div>
+          <div>
+            <div
+                class="formData"
+                data-error="Vous devez entrer 2 caractères ou plus."
+                data-error-visible="false"
+              >
+            <label aria-label="nom">Nom</label>
+            <input
+              class="text-control"
+              aria-label="zone de saisie du prénom"
+              type="text"
+              id="last"
+              name="last"
+              minlength="2"
+              required
+              aria-required="true"
+            />
+          </div>
+          <div>
+            <div
+                class="formData"
+                data-error="Vous devez entrer une adresse email valide."
+                data-error-visible="false"
+              >
+            <label aria-label="email">Email</label>
+            <input
+              class="text-control"
+              aria-label="zone de saisie du prénom"
+              type="email"
+              id="email"
+              name="email"
+              minlength="2"
+              required
+              aria-required="true"
+            />
+          </div>
+          <div>
+            <div
+            class="formData"
+            data-error="Vous devez entrer 2 caractères ou plus."
+            data-error-visible="false"
+          >
+            <label aria-label="votre message">Votre message</label>
+            <textarea aria-label="zone de saisie du prénom" name="message" id="textarea" required aria-required="true"></textarea>
+          </div>
+        </form>
+        <button class="send_button" aria-label="envoyer" role="bouton envoyer">Envoyer</button>
+      </div>
     </div>
-    <script src="/scripts/factories/cardpages.js"></script>
-    <script src="/scripts/factories/cardwork.js"></script>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/lightbox.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
+    <script src="/scripts/utils/lightbox.js"></script>
   </body>
 </html>

@@ -25,14 +25,38 @@ async function displayMediaData(media) {
     const userWorkDOM = mediaModel.getUserCardWork();
     mediaSection.appendChild(userWorkDOM);
   });
-  
-}
+};
+
+function like(event) {
+  const target = event.currentTarget;
+
+  if ( !target.hasAttribute('liked') ) {
+      target.setAttribute('liked','');
+      target.querySelector(".likes").textContent = parseInt(target.textContent)+1;
+      updateTotalLikes();
+  }
+};
+
+async function updateTotalLikes() {
+  const pictures = document.querySelector(".photograph-work");
+  const likes = pictures.querySelectorAll(".likes");
+  const totalLikesNumber = document.querySelector(".totalLikesNumber");
+
+  let totalLikes = 0;
+  likes.forEach( like => totalLikes += parseInt(like.textContent) )
+
+  totalLikesNumber.textContent = totalLikes;
+};
+
 
 async function init() {
   // récupère les datas des photographes
   const {photographers, media} = await getPhotographers();
   displayData(photographers);
   displayMediaData(media);
-}
+  updateTotalLikes();
+};
+
+
 
 init();

@@ -1,5 +1,5 @@
 function photographerPage(data) {
-    const { name, city, country, tagline, portrait } = data;
+    const { name, city, country, tagline, portrait, price } = data;
   
     const picture = `img/Profils/${portrait}`;
   
@@ -12,11 +12,14 @@ function photographerPage(data) {
 
       const h2 = document.createElement("h2");
       h2.textContent = name;
+      h2.ariaLabel = name;
       h2.className = "h2name";
   
       const location = document.createElement("h3");
       location.textContent = city + ", " + country;
       location.className = "h3city";
+      location.ariaLabel = city + ", " + country;
+
       
       const contactMe = document.querySelector(".button_none");
       contactMe.classList.remove("button_none");
@@ -24,13 +27,23 @@ function photographerPage(data) {
       const tag = document.createElement("p");
       tag.textContent = tagline;
       tag.className = "tag";
+      tag.ariaLabel = tagline;
   
       const img = document.createElement("img");
       img.setAttribute("src", picture);
       img.setAttribute("alt", name);
-      img.ariaLabel = name;
+      img.ariaLabel = "photo de " + name;
       img.className = "imguser";
   
+      const photographerPrice = document.querySelector(".priceBox");
+      photographerPrice.textContent = price + " € / jour";
+      photographerPrice.className = "photographerPrice";
+      photographerPrice.ariaLabel = price + " € / jour";
+
+      const contactName = document.querySelector(".contact_name");
+      contactName.textContent = name;
+      contactName.ariaLabel = name;
+
       card.appendChild(h2);
       card.appendChild(location);
       card.appendChild(tag);

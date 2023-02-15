@@ -1,21 +1,11 @@
+html {
+  font-size: 100%;
+}
+
 body {
   font-family: "DM Sans", sans-serif;
   margin: auto;
   max-width: 1400px;
-}
-
-#bground {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.close {
-  width: 30px;
-}
-.close:hover {
-  transform: rotate(-20deg);
 }
 
 .card_name {
@@ -31,7 +21,7 @@ body {
   display: none;
 }
 .contact_button {
-  font-size: 20px;
+  font-size: 1.3em;
   font-weight: bold;
   color: white;
   width: 170px;
@@ -56,55 +46,59 @@ body {
   justify-content: space-around;
   margin-top: 100px;
 }
-.lineblock {
+.photograph-work .likeblock {
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #901c1c;
+  cursor: pointer;
 }
-.heart_work {
+.photograph-work .heart_work {
   width: 20px;
   padding-left: 10px;
 }
-.card_work {
+.photograph-work .card_work {
   width: 350px;
   height: 350px;
   margin: 0 10px;
 }
-.media_work {
+.photograph-work .card_work:hover {
+  scale: 1.05;
+}
+.photograph-work .media_work {
   width: 350px;
   height: 300px;
 }
-.media_work img {
+.photograph-work .media_work img {
   width: 350px;
   height: 300px;
 }
-.work_img {
+.photograph-work .work_img {
   object-fit: cover;
 }
-.media_work video {
+.photograph-work .media_work video {
   width: 350px;
   height: 300px;
 }
-.work_video {
+.photograph-work .work_video {
   object-fit: cover;
 }
-.titleBlock {
+.photograph-work .titleBlock {
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #901c1c;
 }
-.title {
+.photograph-work .title {
   margin: 0;
   font-weight: normal;
-  font-size: 20px;
+  font-size: 1.3em;
   line-height: 47px;
 }
-.likes {
+.photograph-work .likes {
   margin: 0;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 1.1em;
   line-height: 47px;
 }
 .likes_price {
@@ -112,23 +106,68 @@ body {
   height: 60px;
   position: fixed;
   bottom: 0;
-  right: 0;
+  right: 5%;
   background-color: #db8876;
+  display: flex;
+  align-items: center;
+  border-radius: 10px 10px 0 0;
+}
+.totalLikeBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  color: black;
+  font-size: 1.4em;
+}
+.totalLikeBox img {
+  width: 22px;
+  margin-left: 5px;
+  padding-top: 5px;
+}
+.photographerPrice {
+  font-size: 1.4em;
+}
+#bground {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-color: #0000006c;
+  z-index: 1;
+}
+.close_modal {
+  position: absolute;
+  top: 20px;
+  right: 10%;
+  font-size: 2em;
+  color: rgb(255, 255, 255);
+}
+.close_modal:hover {
+  transform: rotate(-20deg);
 }
 .modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border-radius: 5px;
   background-color: #db8876;
-  width: 100%;
+  width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 35px;
+  padding: 5px 35px;
   margin: auto;
 }
 
 .modal header {
-  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   width: 100%;
 }
 
@@ -136,13 +175,13 @@ body {
   cursor: pointer;
 }
 
-.modal header h2 {
-  font-size: 40px;
+.modal header .contactMe {
+  font-size: 1.7em;
   font-weight: normal;
   text-align: center;
 }
 .modal header .contact_name {
-  font-size: 50px;
+  font-size: 1.7em;
   font-weight: normal;
   text-align: center;
 }
@@ -155,7 +194,7 @@ form {
 
 form label {
   color: #312e2e;
-  font-size: 20px;
+  font-size: 1.3em;
 }
 
 form div {
@@ -171,17 +210,18 @@ form input {
   height: 40px;
   border: none;
   border-radius: 5px;
-  font-size: 24px;
+  font-size: 1em;
 }
 form textarea {
   width: 100%;
   height: 150px;
   border: none;
   border-radius: 5px;
-  font-size: 24px;
+  font-size: 1.4em;
+  font-family: "DM Sans", sans-serif;
 }
 .send_button {
-  font-size: 20px;
+  font-size: 1.3em;
   font-weight: bold;
   color: white;
   width: 170px;
@@ -190,7 +230,10 @@ form textarea {
   background-color: #901c1c;
   border-radius: 5px;
   cursor: pointer;
-  margin: 10px 0;
+  margin: 10px auto 0;
+}
+.send_button:hover {
+  background-color: #3876ac;
 }
 #lightbox {
   display: none;
@@ -200,5 +243,66 @@ form textarea {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #312e2e73;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+}
+#lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2em;
+  color: #901c1c;
+}
+#lightbox .chevron {
+  width: 5%;
+  font-size: 2.5em;
+  color: #901c1c;
+  text-align: center;
+}
+.card_lightbox {
+  width: 1050px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.card_lightbox video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card_lightbox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.media_title {
+  color: #901c1c;
+}
+.no-scroll {
+   overflow: hidden;
+}
+.formData[data-error]::after {
+  content: attr(data-error);
+  font-size: 1em;
+  color: #000000;
+  display: block;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  text-align: left;
+  line-height: 0.3;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.formData[data-error-visible="true"]::after {
+  opacity: 1;
+}
+
+input[data-error]::after {
+  content: attr(data-error);
+  font-size: 0.6em;
+  color: red;
 }
