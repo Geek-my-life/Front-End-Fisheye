@@ -20,10 +20,18 @@
         <img src="img/logo.png" class="logo" alt="Fisheye Homepage" />
       </a>
     </header>
-    <main id="main" aria-hidden="false">
+    <main id="main">
       <div>
         <div class="photograph-header"></div>
         <button class="button_none contact_button" aria-label="bouton contactez moi" role="bouton">Contactez-Moi</button>
+      </div>
+      <div class="dropdown">
+        <label class="dropdownLabel">Trier par :</label>
+        <select id="mySelect">
+          <option class="mySelectOption" value="popularite">Popularité</option>
+          <option class="mySelectOption" value="date">Date</option>
+          <option class="mySelectOption" value="titre">Titre</option>
+        </select>
       </div>
       <div class="photograph-work" aria-label="portfolio"></div>
       <div class="likes_price">
@@ -41,7 +49,7 @@
       </div>
     </main>
 
-    <div id="bground" aria-hidden="true">
+    <div id="bground">
       <div class="modal">
         <header>
           <div class="contactMe" aria-label="Contactez-moi">Contactez-moi</div>

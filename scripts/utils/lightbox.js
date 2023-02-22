@@ -14,8 +14,16 @@ function launchLightbox(element) {
 }
 
 // lancement formulaire event
+
 pictureMedia.forEach(function (element, i) {
   element.addEventListener("click", () => launchLightbox(element));
+  element.addEventListener("keydown", function (e) {
+    const key = e.key;
+    if (key === "Enter") {
+      launchLightbox(element);
+    }
+
+  });
 });
 
 // fermeture formulaire
@@ -62,7 +70,7 @@ function goToNext() {
 // event suivante
 nextButton.addEventListener("click", goToNext);
 
-// retour et suivant avec les fleches du clavier
+// retour suivant et fermer avec les fleches du clavier
 document.addEventListener("keydown", function (e) {
   const key = e.key;
 

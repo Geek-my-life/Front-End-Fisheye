@@ -17,41 +17,42 @@ const regExMail =
 
 // ouverture du modal
 const onOpenModal = () => {
-  mainWrapper.setAttribute('aria-hidden', 'true')
-  modalbg.setAttribute('aria-hidden', 'false')
-  body.classList.add('no-scroll')
-  modalbg.style.display = "block"
-  closeButton.focus()
+  mainWrapper.setAttribute("aria-hidden", "true");
+  modalbg.setAttribute("aria-hidden", "false");
+  body.classList.add("no-scroll");
+  modalbg.style.display = "block";
+  firstName.focus();
 };
 
 // event d'ouverture
-contactButton.addEventListener('click', function() {
+contactButton.addEventListener("click", function () {
   onOpenModal();
 });
 
 // fermeture du modal
 const onCloseModal = () => {
-  mainWrapper.setAttribute('aria-hidden', 'false')
-  modalbg.setAttribute('aria-hidden', 'true')
-  body.classList.remove('no-scroll')
-  modalbg.style.display = "none"
-  contactButton.focus()
+  mainWrapper.setAttribute("aria-hidden", "false");
+  modalbg.setAttribute("aria-hidden", "true");
+  body.classList.remove("no-scroll");
+  modalbg.style.display = "none";
+  contactButton.focus();
 };
 
-// event d'ouverture
-closeButton.addEventListener('click', function() {
+// event de fermeture
+closeButton.addEventListener("click", function () {
   onCloseModal();
 });
 
-document.addEventListener('keydown', function(e) {
+document.addEventListener("keydown", function (e) {
   const key = e.key;
-
-  if (modalbg.getAttribute('aria-hidden') == 'false' && key === 'Escape') {
+  if (modalbg.getAttribute("aria-hidden") == "false" && key === "Escape") {
     onCloseModal();
   }
 });
 
-// verification 
+// verification du formulaire
+
+// verification prenom
 firstName.addEventListener("input", checkFirst);
 
 function checkFirst() {
@@ -66,6 +67,7 @@ function checkFirst() {
   }
 }
 
+// verification nom
 lastName.addEventListener("input", checkLast);
 
 function checkLast() {
@@ -79,6 +81,7 @@ function checkLast() {
     return true;
   }
 }
+
 // verification mail
 email.addEventListener("input", checkEmail);
 
@@ -93,8 +96,9 @@ function checkEmail() {
     email.style.border = "solid #279e7a 0.19rem";
     return true;
   }
-};
+}
 
+// verification zone de texte
 textArea.addEventListener("input", checkTextArea);
 
 function checkTextArea() {
@@ -108,13 +112,14 @@ function checkTextArea() {
     return true;
   }
 }
+
+// verification globale
 function checkAll() {
   checkFirst();
   checkLast();
   checkEmail();
   checkTextArea();
-
-};
+}
 
 function validForm() {
   if (
@@ -127,13 +132,13 @@ function validForm() {
   } else {
     return false;
   }
-};
+}
 
 // envoi formulaire
 sendButton.addEventListener("click", function (e) {
   e.preventDefault();
   if (validForm() == true) {
-    sendButton.addEventListener('click', function() {
+    sendButton.addEventListener("click", function () {
       onCloseModal();
     });
   } else {

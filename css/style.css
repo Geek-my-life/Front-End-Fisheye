@@ -10,14 +10,17 @@ body {
   max-width: 1400px;
 }
 
-header {
+header {  
   display: flex;
-  flex-direction: row;
+flex-direction: row;
   justify-content: space-between;
   align-items: center;
   height: 90px;
 }
-
+header a:focus {
+  outline: none;
+  scale: 1.1;
+}
 h1 {
   color: #901c1c;
   margin-right: 100px;
@@ -35,7 +38,10 @@ h1 {
   gap: 70px;
   margin-top: 100px;
 }
-
+.name:focus {
+  outline: none;
+  scale: 1.1;
+}
 .card-profils {
   justify-self: center;
   display: flex;
@@ -49,7 +55,10 @@ h1 {
 .card-profils:hover {
   scale: 1.1;
 }
-
+.card-profils:focus {
+  outline: none;
+  scale: 1.1;
+}
 .card-profils a {
   display: flex;
   flex-direction: column;

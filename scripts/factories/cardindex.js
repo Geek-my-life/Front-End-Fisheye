@@ -12,6 +12,8 @@ function photographerFactory(data) {
     linkId.ariaLabel = "lien vers " + name;
     linkId.setAttribute("onkeydown", "openlink(event");
     linkId.className = "name";
+    linkId.tabIndex = "0";
+
 
     const img = document.createElement("img");
     img.setAttribute("src", picture);

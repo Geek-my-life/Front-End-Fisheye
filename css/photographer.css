@@ -38,13 +38,17 @@ body {
 .contact_button:hover {
   background-color: #3876ac;
 }
+.contact_button:focus {
+  outline: none;
+  background-color: #3876ac;
+}
 .photograph-work {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 .photograph-work .likeblock {
   display: flex;
@@ -64,6 +68,10 @@ body {
 }
 .photograph-work .card_work:hover {
   scale: 1.05;
+}
+.photograph-work .media_work:focus {
+  scale: 1.05;
+  outline-color: #3876ac;
 }
 .photograph-work .media_work {
   width: 350px;
@@ -235,6 +243,10 @@ form textarea {
 .send_button:hover {
   background-color: #3876ac;
 }
+.send_button:focus {
+  outline: none;
+  background-color: #3876ac;
+}
 #lightbox {
   display: none;
   width: 100%;
@@ -270,15 +282,16 @@ form textarea {
 }
 .card_lightbox video {
   width: 100%;
-  height: 100%;
+  height: 85%;
   object-fit: cover;
 }
 .card_lightbox img {
   width: 100%;
-  height: 100%;
+  height: 85%;
   object-fit: cover;
 }
 .media_title {
+  height: 5%;
   color: #901c1c;
 }
 .no-scroll {
@@ -305,4 +318,28 @@ input[data-error]::after {
   content: attr(data-error);
   font-size: 0.6em;
   color: red;
+}
+.dropdown {
+  display: flex;
+  align-items: center;
+  margin-left: 5%;
+  height: 30px;
+}
+.dropdownLabel {
+  margin-right: 2%;
+}
+#mySelect {
+  height: 100%;
+  width: 100px;
+  border-style: none;
+  background-color: #901c1c;
+  border-radius: 5px;
+  color: white;
+}
+#mySelect:focus {
+  outline: none;
+  background-color: #3876ac;
+}
+.mySelectOption {
+  line-height: 30px;
 }

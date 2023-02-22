@@ -15,6 +15,8 @@ function photographerWork(data) {
         media.title = title;
         media.ariaLabel = title;
         media.className = "work_img work_lightbox";
+        media.dataset.date = date;
+        media.dataset.like = likes;
     } else if(data.video) {
         media = document.createElement("video");
         media.src = videoMedia;
@@ -22,6 +24,8 @@ function photographerWork(data) {
         media.ariaLabel = title;
         media.title = title;
         media.className = "work_video work_lightbox";
+        media.dataset.date = date;
+        media.dataset.like = likes;
     }
     return media;
 }
@@ -32,6 +36,7 @@ function photographerWork(data) {
 
     const mediaBlock = document.createElement("div");
     mediaBlock.className = "media_work";
+    mediaBlock.tabIndex = "0";
 
     const media = getWork();
 
