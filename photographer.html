@@ -4,7 +4,10 @@
     <script src="/scripts/factories/cardpages.js"></script>
     <script src="/scripts/factories/cardwork.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
-    <script src="https://kit.fontawesome.com/ab907928cc.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/ab907928cc.js"
+      crossorigin="anonymous"
+    ></script>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="img/favicon.png" />
@@ -15,19 +18,26 @@
     <title>Fisheye - photographe</title>
   </head>
   <body class="body">
-    <header>
-      <a href="index.html" aria-label="Fisheye Homepage" role="retour homepage">
+    <header >
+      <a href="index.html" aria-label="Fisheye Homepage" role="retour homepage" class="stopFocus">
         <img src="img/logo.png" class="logo" alt="Fisheye Homepage" />
       </a>
     </header>
     <main id="main">
       <div>
         <div class="photograph-header"></div>
-        <button class="button_none contact_button" aria-label="bouton contactez moi" role="bouton">Contactez-Moi</button>
+        <button
+          class="button_none contact_button"
+          aria-label="bouton contactez moi"
+          role="bouton"
+          class="stopFocus"
+        >
+          Contactez-Moi
+        </button>
       </div>
       <div class="dropdown">
         <label class="dropdownLabel">Trier par :</label>
-        <select id="mySelect">
+        <select id="mySelect" class="stopFocus">
           <option class="mySelectOption" value="popularite">Popularité</option>
           <option class="mySelectOption" value="date">Date</option>
           <option class="mySelectOption" value="titre">Titre</option>
@@ -37,7 +47,7 @@
       <div class="likes_price">
         <div class="totalLikeBox">
           <div class="totalLikesNumber"></div>
-          <img src="img/heartBlack.svg" alt="like">
+          <img src="img/heartBlack.svg" alt="like" />
         </div>
         <div class="priceBox"></div>
       </div>
@@ -59,69 +69,81 @@
         <form id="form">
           <div>
             <div
-                class="formData"
-                data-error="Vous devez entrer 2 caractères ou plus."
-                data-error-visible="false"
-              >
-            <label aria-label="prénom">Prénom</label>
-            <input
-              class="text-control"
-              aria-label="zone de saisie du prénom"
-              type="text"
-              id="first"
-              name="first"
-              minlength="2"
-              required
-              aria-required="true"
-            />
+              class="formData"
+              data-error="Vous devez entrer 2 caractères ou plus."
+              data-error-visible="false"
+            >
+              <label aria-label="prénom">Prénom</label>
+              <input
+                class="text-control"
+                aria-label="zone de saisie du prénom"
+                type="text"
+                id="first"
+                name="first"
+                minlength="2"
+                required
+                aria-required="true"
+              />
+            </div>
           </div>
           <div>
             <div
-                class="formData"
-                data-error="Vous devez entrer 2 caractères ou plus."
-                data-error-visible="false"
-              >
-            <label aria-label="nom">Nom</label>
-            <input
-              class="text-control"
-              aria-label="zone de saisie du prénom"
-              type="text"
-              id="last"
-              name="last"
-              minlength="2"
-              required
-              aria-required="true"
-            />
+              class="formData"
+              data-error="Vous devez entrer 2 caractères ou plus."
+              data-error-visible="false"
+            >
+              <label aria-label="nom">Nom</label>
+              <input
+                class="text-control"
+                aria-label="zone de saisie du prénom"
+                type="text"
+                id="last"
+                name="last"
+                minlength="2"
+                required
+                aria-required="true"
+              />
+            </div>
           </div>
           <div>
             <div
-                class="formData"
-                data-error="Vous devez entrer une adresse email valide."
-                data-error-visible="false"
-              >
-            <label aria-label="email">Email</label>
-            <input
-              class="text-control"
-              aria-label="zone de saisie du prénom"
-              type="email"
-              id="email"
-              name="email"
-              minlength="2"
-              required
-              aria-required="true"
-            />
+              class="formData"
+              data-error="Vous devez entrer une adresse email valide."
+              data-error-visible="false"
+            >
+              <label aria-label="email">Email</label>
+              <input
+                class="text-control"
+                aria-label="zone de saisie du prénom"
+                type="email"
+                id="email"
+                name="email"
+                minlength="2"
+                required
+                aria-required="true"
+              />
+            </div>
           </div>
           <div>
             <div
-            class="formData"
-            data-error="Vous devez entrer 2 caractères ou plus."
-            data-error-visible="false"
-          >
-            <label aria-label="votre message">Votre message</label>
-            <textarea aria-label="zone de saisie du prénom" name="message" id="textarea" required aria-required="true"></textarea>
+              class="formData"
+              data-error="Vous devez entrer 2 caractères ou plus."
+              data-error-visible="false"
+            >
+              <label aria-label="votre message">Votre message</label>
+              <textarea
+                aria-label="zone de saisie du prénom"
+                name="message"
+                id="textarea"
+                required
+                aria-required="true"
+              ></textarea>
+            </div>
           </div>
         </form>
-        <button class="send_button" aria-label="envoyer" role="bouton envoyer">Envoyer</button>
+        <button class="send_button" aria-label="envoyer" role="bouton envoyer">
+          Envoyer
+        </button>
       </div>
     </div>
     <script src="/scripts/utils/contactForm.js"></script>

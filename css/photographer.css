@@ -66,7 +66,7 @@ body {
   height: 350px;
   margin: 0 10px;
 }
-.photograph-work .card_work:hover {
+.photograph-work .media_work:hover {
   scale: 1.05;
 }
 .photograph-work .media_work:focus {
@@ -238,8 +238,8 @@ form textarea {
   background-color: #901c1c;
   border-radius: 5px;
   cursor: pointer;
-  margin: 10px auto 0;
-}
+  margin: 10px auto;
+}px
 .send_button:hover {
   background-color: #3876ac;
 }
@@ -342,4 +342,7 @@ input[data-error]::after {
 }
 .mySelectOption {
   line-height: 30px;
+}
+.disabled {
+  pointer-events: none;
 }

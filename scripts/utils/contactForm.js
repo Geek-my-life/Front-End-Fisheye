@@ -3,7 +3,6 @@ const contactButton = document.querySelector(".contact_button");
 const closeButton = document.querySelector(".close_modal");
 const sendButton = document.querySelector(".send_button");
 const body = document.querySelector(".body");
-const mainWrapper = document.getElementById("main");
 const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
 const email = document.getElementById("email");
@@ -13,15 +12,18 @@ const regEx = /^([A-Za-z]){2,}?([-]){0,}?([A-Za-z]){0,}/;
 const regExMail =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-// variables pour l'accessibilité
-
 // ouverture du modal
 const onOpenModal = () => {
-  mainWrapper.setAttribute("aria-hidden", "true");
   modalbg.setAttribute("aria-hidden", "false");
   body.classList.add("no-scroll");
   modalbg.style.display = "block";
   firstName.focus();
+  document.querySelectorAll(".stopFocus").forEach((element) => {
+    element.setAttribute("tabindex", "-1");
+  });
+  document.querySelectorAll(".media_work").forEach((element) => {
+    element.setAttribute("tabindex", "-1");
+  });
 };
 
 // event d'ouverture
@@ -31,7 +33,12 @@ contactButton.addEventListener("click", function () {
 
 // fermeture du modal
 const onCloseModal = () => {
-  mainWrapper.setAttribute("aria-hidden", "false");
+  document.querySelectorAll(".stopFocus").forEach((element) => {
+    element.setAttribute("tabindex", "0");
+  });
+  document.querySelectorAll(".media_work").forEach((element) => {
+    element.setAttribute("tabindex", "0");
+  });
   modalbg.setAttribute("aria-hidden", "true");
   body.classList.remove("no-scroll");
   modalbg.style.display = "none";

@@ -22,7 +22,6 @@ pictureMedia.forEach(function (element, i) {
     if (key === "Enter") {
       launchLightbox(element);
     }
-
   });
 });
 
