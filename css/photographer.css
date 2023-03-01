@@ -8,7 +8,9 @@ body {
   max-width: 1400px;
 }
 
-.card_name {
+/* Card du photographe */
+
+.cardName {
   height: 300px;
   margin: 0 100px;
   padding: 0 50px;
@@ -17,10 +19,12 @@ body {
   align-items: center;
   position: relative;
 }
-.button_none {
+
+.buttonNone {
   display: none;
 }
-.contact_button {
+
+.contactButton {
   font-size: 1.3em;
   font-weight: bold;
   color: white;
@@ -35,14 +39,54 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.contact_button:hover {
+
+.contactButton:hover {
   background-color: #3876ac;
 }
-.contact_button:focus {
+
+.contactButton:focus {
   outline: none;
   background-color: #3876ac;
 }
-.photograph-work {
+
+/* Outil de tri */
+
+.dropdown {
+  display: flex;
+  align-items: center;
+  margin-left: 5%;
+  height: 30px;
+}
+
+.dropdownLabel {
+  margin-right: 2%;
+}
+
+#mySelect {
+  height: 100%;
+  width: 100px;
+  border-style: none;
+  background-color: #901c1c;
+  border-radius: 5px;
+  color: white;
+}
+
+#mySelect:focus {
+  outline: none;
+  background-color: #3876ac;
+}
+
+.mySelectOption {
+  line-height: 30px;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+/* Card des réalisations */
+
+.photographWork {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -50,66 +94,81 @@ body {
   justify-content: space-around;
   margin-top: 50px;
 }
-.photograph-work .likeblock {
+
+.cardWork {
+  width: 350px;
+  height: 350px;
+  margin: 0 10px;
+}
+
+.mediaWork {
+  width: 350px;
+  height: 300px;
+}
+
+.mediaWork:hover {
+  scale: 1.05;
+}
+
+.mediaWork:focus {
+  scale: 1.05;
+  outline-color: #3876ac;
+}
+
+.mediaWork img {
+  width: 350px;
+  height: 300px;
+}
+.workImg {
+  object-fit: cover;
+}
+
+.mediaWork video {
+  width: 350px;
+  height: 300px;
+}
+
+.workVideo {
+  object-fit: cover;
+}
+
+.titleBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #901c1c;
+}
+
+.title {
+  margin: 0;
+  font-weight: normal;
+  font-size: 1.2em;
+  line-height: 47px;
+}
+
+.likeBlock {
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #901c1c;
   cursor: pointer;
 }
-.photograph-work .heart_work {
+
+.heartWork {
   width: 20px;
-  padding-left: 10px;
+  padding-left: 5px;
 }
-.photograph-work .card_work {
-  width: 350px;
-  height: 350px;
-  margin: 0 10px;
-}
-.photograph-work .media_work:hover {
-  scale: 1.05;
-}
-.photograph-work .media_work:focus {
-  scale: 1.05;
-  outline-color: #3876ac;
-}
-.photograph-work .media_work {
-  width: 350px;
-  height: 300px;
-}
-.photograph-work .media_work img {
-  width: 350px;
-  height: 300px;
-}
-.photograph-work .work_img {
-  object-fit: cover;
-}
-.photograph-work .media_work video {
-  width: 350px;
-  height: 300px;
-}
-.photograph-work .work_video {
-  object-fit: cover;
-}
-.photograph-work .titleBlock {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #901c1c;
-}
-.photograph-work .title {
-  margin: 0;
-  font-weight: normal;
-  font-size: 1.3em;
-  line-height: 47px;
-}
-.photograph-work .likes {
+
+.likes {
   margin: 0;
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 1em;
   line-height: 47px;
 }
-.likes_price {
+
+/* Box du prix et des likes au global */
+
+.likesPrice {
   width: 350px;
   height: 60px;
   position: fixed;
@@ -120,6 +179,7 @@ body {
   align-items: center;
   border-radius: 10px 10px 0 0;
 }
+
 .totalLikeBox {
   display: flex;
   justify-content: center;
@@ -128,14 +188,19 @@ body {
   color: black;
   font-size: 1.4em;
 }
+
 .totalLikeBox img {
   width: 22px;
   margin-left: 5px;
   padding-top: 5px;
 }
+
 .photographerPrice {
   font-size: 1.4em;
 }
+
+/* Formulaire de contact */
+
 #bground {
   display: none;
   position: fixed;
@@ -145,16 +210,19 @@ body {
   background-color: #0000006c;
   z-index: 1;
 }
-.close_modal {
+
+.closeModal {
   position: absolute;
   top: 20px;
   right: 10%;
   font-size: 2em;
   color: rgb(255, 255, 255);
 }
-.close_modal:hover {
+
+.closeModal:hover {
   transform: rotate(-20deg);
 }
+
 .modal {
   position: fixed;
   top: 50%;
@@ -183,16 +251,18 @@ body {
   cursor: pointer;
 }
 
-.modal header .contactMe {
+.contactMe {
   font-size: 1.7em;
   font-weight: normal;
   text-align: center;
 }
-.modal header .contact_name {
+
+.contactName {
   font-size: 1.7em;
   font-weight: normal;
   text-align: center;
 }
+
 form {
   display: flex;
   width: 100%;
@@ -220,6 +290,7 @@ form input {
   border-radius: 5px;
   font-size: 1em;
 }
+
 form textarea {
   width: 100%;
   height: 150px;
@@ -228,7 +299,8 @@ form textarea {
   font-size: 1.4em;
   font-family: "DM Sans", sans-serif;
 }
-.send_button {
+
+.sendButton {
   font-size: 1.3em;
   font-weight: bold;
   color: white;
@@ -239,14 +311,19 @@ form textarea {
   border-radius: 5px;
   cursor: pointer;
   margin: 10px auto;
-}px
-.send_button:hover {
+}
+
+.sendButton:hover {
   background-color: #3876ac;
 }
-.send_button:focus {
+
+.sendButton:focus {
   outline: none;
   background-color: #3876ac;
 }
+
+/* Visionneuse d'image */
+
 #lightbox {
   display: none;
   width: 100%;
@@ -259,6 +336,7 @@ form textarea {
   align-items: center;
   justify-content: center;
 }
+
 #lightbox .close {
   position: absolute;
   top: 20px;
@@ -266,13 +344,15 @@ form textarea {
   font-size: 2em;
   color: #901c1c;
 }
+
 #lightbox .chevron {
   width: 5%;
   font-size: 2.5em;
   color: #901c1c;
   text-align: center;
 }
-.card_lightbox {
+
+.cardLightbox {
   width: 1050px;
   height: 800px;
   display: flex;
@@ -280,23 +360,28 @@ form textarea {
   align-items: center;
   justify-content: center;
 }
-.card_lightbox video {
+
+.cardLightbox video {
   width: 100%;
   height: 85%;
   object-fit: cover;
 }
-.card_lightbox img {
+
+.cardLightbox img {
   width: 100%;
   height: 85%;
   object-fit: cover;
 }
-.media_title {
+
+.mediaTitle {
   height: 5%;
   color: #901c1c;
 }
-.no-scroll {
-   overflow: hidden;
+
+.noScroll {
+  overflow: hidden;
 }
+
 .formData[data-error]::after {
   content: attr(data-error);
   font-size: 1em;
@@ -318,31 +403,4 @@ input[data-error]::after {
   content: attr(data-error);
   font-size: 0.6em;
   color: red;
-}
-.dropdown {
-  display: flex;
-  align-items: center;
-  margin-left: 5%;
-  height: 30px;
-}
-.dropdownLabel {
-  margin-right: 2%;
-}
-#mySelect {
-  height: 100%;
-  width: 100px;
-  border-style: none;
-  background-color: #901c1c;
-  border-radius: 5px;
-  color: white;
-}
-#mySelect:focus {
-  outline: none;
-  background-color: #3876ac;
-}
-.mySelectOption {
-  line-height: 30px;
-}
-.disabled {
-  pointer-events: none;
 }

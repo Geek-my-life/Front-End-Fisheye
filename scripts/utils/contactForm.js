@@ -1,7 +1,7 @@
 const modalbg = document.getElementById("bground");
-const contactButton = document.querySelector(".contact_button");
-const closeButton = document.querySelector(".close_modal");
-const sendButton = document.querySelector(".send_button");
+const contactButton = document.querySelector(".contactButton");
+const closeButton = document.querySelector(".closeModal");
+const sendButton = document.querySelector(".sendButton");
 const body = document.querySelector(".body");
 const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
@@ -15,13 +15,13 @@ const regExMail =
 // ouverture du modal
 const onOpenModal = () => {
   modalbg.setAttribute("aria-hidden", "false");
-  body.classList.add("no-scroll");
+  body.classList.add("noScroll");
   modalbg.style.display = "block";
   firstName.focus();
   document.querySelectorAll(".stopFocus").forEach((element) => {
     element.setAttribute("tabindex", "-1");
   });
-  document.querySelectorAll(".media_work").forEach((element) => {
+  document.querySelectorAll(".mediaWork").forEach((element) => {
     element.setAttribute("tabindex", "-1");
   });
 };
@@ -36,11 +36,11 @@ const onCloseModal = () => {
   document.querySelectorAll(".stopFocus").forEach((element) => {
     element.setAttribute("tabindex", "0");
   });
-  document.querySelectorAll(".media_work").forEach((element) => {
+  document.querySelectorAll(".mediaWork").forEach((element) => {
     element.setAttribute("tabindex", "0");
   });
   modalbg.setAttribute("aria-hidden", "true");
-  body.classList.remove("no-scroll");
+  body.classList.remove("noScroll");
   modalbg.style.display = "none";
   contactButton.focus();
 };

@@ -5,10 +5,10 @@ function photographerPage(data) {
   
     function getUserCardPage() {
       const article = document.createElement("article");
-      article.className = "card_head";
+      article.className = "cardHead";
   
       const card = document.createElement("div");
-      article.className = "card_name";
+      article.className = "cardName";
 
       const h2 = document.createElement("h2");
       h2.textContent = name;
@@ -21,8 +21,8 @@ function photographerPage(data) {
       location.ariaLabel = city + ", " + country;
 
       
-      const contactMe = document.querySelector(".button_none");
-      contactMe.classList.remove("button_none");
+      const contactMe = document.querySelector(".buttonNone");
+      contactMe.classList.remove("buttonNone");
 
       const tag = document.createElement("p");
       tag.textContent = tagline;
@@ -40,7 +40,7 @@ function photographerPage(data) {
       photographerPrice.className = "photographerPrice";
       photographerPrice.ariaLabel = price + " € / jour";
 
-      const contactName = document.querySelector(".contact_name");
+      const contactName = document.querySelector(".contactName");
       contactName.textContent = name;
       contactName.ariaLabel = name;
 

@@ -14,7 +14,7 @@ function photographerWork(data) {
         media.alt = title;
         media.title = title;
         media.ariaLabel = title;
-        media.className = "work_img work_lightbox";
+        media.className = "workImg workLightbox";
         media.dataset.date = date;
         media.dataset.like = likes;
     } else if(data.video) {
@@ -23,7 +23,7 @@ function photographerWork(data) {
         media.alt = title;
         media.ariaLabel = title;
         media.title = title;
-        media.className = "work_video work_lightbox";
+        media.className = "workVideo workLightbox";
         media.dataset.date = date;
         media.dataset.like = likes;
     }
@@ -32,10 +32,10 @@ function photographerWork(data) {
 
   function getUserCardWork() {
     const article = document.createElement("article");
-    article.className = "card_work";
+    article.className = "cardWork";
 
     const mediaBlock = document.createElement("div");
-    mediaBlock.className = "media_work";
+    mediaBlock.className = "mediaWork";
     mediaBlock.tabIndex = "0";
 
     const media = getWork();
@@ -49,7 +49,7 @@ function photographerWork(data) {
     titleImg.ariaLabel = title;
 
     const likeblock = document.createElement("div");
-    likeblock.className = "likeblock";
+    likeblock.className = "likeBlock";
     likeblock.setAttribute("onclick", 'like(event)');
 
     const like = document.createElement("h3");
@@ -61,29 +61,29 @@ function photographerWork(data) {
     heartBlock.setAttribute("src", heart);
     heartBlock.setAttribute("alt", "like");
     heartBlock.ariaLabel = likes;
-    heartBlock.className = "heart_work";
+    heartBlock.className = "heartWork";
 
     const workId = document.createElement("p");
     workId.textContent = id;
-    workId.className = "id_work";
+    workId.className = "idWork";
     workId.ariaLabel = id;
     workId.style.display = "none";
 
     const photographerPageId = document.createElement("p");
     photographerPageId.textContent = photographerId;
-    photographerPageId.className = "profils_id_work";
+    photographerPageId.className = "profilsIdWork";
     photographerPageId.ariaLabel = photographerId;
     photographerPageId.style.display = "none";
 
     const dateImg = document.createElement("p");
     dateImg.textContent = date;
-    dateImg.className = "date_work";
+    dateImg.className = "dateWork";
     dateImg.ariaLabel = date;
     dateImg.style.display = "none";
 
     const workPrice = document.createElement("p");
     workPrice.textContent = price;
-    workPrice.className = "price_work";
+    workPrice.className = "priceWork";
     workPrice.ariaLabel = price;
     workPrice.style.display = "none";
 

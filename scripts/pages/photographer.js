@@ -8,7 +8,7 @@ const params = new URLSearchParams(queryString);
 const pageId = params.get("photographer");
 
 async function displayData(photographers) {
-  const photographersSection = document.querySelector(".photograph-header");
+  const photographersSection = document.querySelector(".photographHeader");
   const photographerById = photographers
     .filter((photographer) => photographer.id == pageId)
     .forEach((photographerById) => {
@@ -19,7 +19,7 @@ async function displayData(photographers) {
 }
 
 async function displayMediaData(media) {
-  const mediaSection = document.querySelector(".photograph-work");
+  const mediaSection = document.querySelector(".photographWork");
   mediaSection.innerHTML = "";
   const mediaOrder = document.getElementById("mySelect").value;
   const mediaById = media
@@ -60,7 +60,7 @@ function like(event) {
 }
 
 async function updateTotalLikes() {
-  const pictures = document.querySelector(".photograph-work");
+  const pictures = document.querySelector(".photographWork");
   const likes = pictures.querySelectorAll(".likes");
   const totalLikesNumber = document.querySelector(".totalLikesNumber");
 

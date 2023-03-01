@@ -1,7 +1,7 @@
 const lightbox = document.getElementById("lightbox");
-const pictureMedia = document.querySelectorAll(".media_work");
+const pictureMedia = document.querySelectorAll(".mediaWork");
 const close = document.querySelectorAll(".close");
-const mediaAll = document.querySelectorAll(".work_lightbox");
+const mediaAll = document.querySelectorAll(".workLightbox");
 const prevButton = document.querySelector(".fa-chevron-left");
 const nextButton = document.querySelector(".fa-chevron-right");
 let currentIndex = 0;
@@ -9,7 +9,7 @@ let currentIndex = 0;
 // lancement formulaire
 function launchLightbox(element) {
   lightbox.style.display = "flex";
-  const imageLightbox = element.querySelector(".work_lightbox");
+  const imageLightbox = element.querySelector(".workLightbox");
   renderMedia(imageLightbox);
 }
 
@@ -37,9 +37,9 @@ close.forEach(function (element, i) {
 
 // affichage de la bonne lightbox
 function renderMedia(media) {
-  const mediaContainer = document.querySelector(".card_lightbox");
+  const mediaContainer = document.querySelector(".cardLightbox");
   const mediaContainerTitle = document.createElement("h4");
-  mediaContainerTitle.className = "media_title";
+  mediaContainerTitle.className = "mediaTitle";
   mediaContainerTitle.innerHTML = media.title;
   mediaContainerTitle.ariaLabel = media.title;
   const isImage = /\.(jpeg|jpg|gif|png)$/i.test(media.src);
