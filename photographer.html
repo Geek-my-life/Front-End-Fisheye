@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="/scripts/factories/cardpages.js"></script>
-    <script src="/scripts/factories/cardwork.js"></script>
-    <script src="/scripts/pages/photographer.js"></script>
     <script
       src="https://kit.fontawesome.com/ab907928cc.js"
       crossorigin="anonymous"
@@ -18,8 +15,13 @@
     <title>Fisheye - photographe</title>
   </head>
   <body class="body">
-    <header >
-      <a href="index.html" aria-label="Fisheye Homepage" role="retour homepage" class="stopFocus">
+    <header>
+      <a
+        href="index.html"
+        aria-label="Fisheye Homepage"
+        role="retour homepage"
+        class="stopFocus"
+      >
         <img src="img/logo.png" class="logo" alt="Fisheye Homepage" />
       </a>
     </header>
@@ -146,7 +148,17 @@
         </button>
       </div>
     </div>
+    <script src="/scripts/factories/cardpages.js"></script>
+    <script src="/scripts/factories/cardwork.js"></script>
+    <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
-    <script src="/scripts/utils/lightbox.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var script = document.createElement("script");
+        script.src = "/scripts/utils/lightbox.js";
+        document.body.appendChild(script);
+      });
+      defer;
+    </script>
   </body>
 </html>
