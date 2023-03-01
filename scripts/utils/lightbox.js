@@ -1,10 +1,9 @@
 const lightbox = document.getElementById("lightbox");
-const pictureMedia = document.querySelectorAll(".mediaWork");
 const close = document.querySelectorAll(".close");
 const mediaAll = document.querySelectorAll(".workLightbox");
-const prevButton = document.querySelector(".fa-chevron-left");
-const nextButton = document.querySelector(".fa-chevron-right");
 let currentIndex = 0;
+
+// fonction
 
 // lancement formulaire
 function launchLightbox(element) {
@@ -13,27 +12,10 @@ function launchLightbox(element) {
   renderMedia(imageLightbox);
 }
 
-// lancement formulaire event
-
-pictureMedia.forEach(function (element, i) {
-  element.addEventListener("click", () => launchLightbox(element));
-  element.addEventListener("keydown", function (e) {
-    const key = e.key;
-    if (key === "Enter") {
-      launchLightbox(element);
-    }
-  });
-});
-
 // fermeture formulaire
 function closeLightbox() {
   lightbox.style.display = "none";
 }
-
-// fermeture formulaire event
-close.forEach(function (element, i) {
-  element.addEventListener("click", closeLightbox);
-});
 
 // affichage de la bonne lightbox
 function renderMedia(media) {
@@ -58,16 +40,36 @@ function goToPrev() {
   currentIndex = (currentIndex + mediaAll.length - 1) % mediaAll.length;
   renderMedia(mediaAll[currentIndex]);
 }
-// event retour
-prevButton.addEventListener("click", goToPrev);
 
 // fleche suivante
 function goToNext() {
   currentIndex = (currentIndex + 1) % mediaAll.length;
   renderMedia(mediaAll[currentIndex]);
 }
-// event suivante
-nextButton.addEventListener("click", goToNext);
+
+// event
+
+// lancement formulaire
+document.querySelectorAll(".mediaWork").forEach(function (element, i) {
+  element.addEventListener("click", () => launchLightbox(element));
+  element.addEventListener("keydown", function (e) {
+    const key = e.key;
+    if (key === "Enter") {
+      launchLightbox(element);
+    }
+  });
+});
+
+// fermeture formulaire
+close.forEach(function (element, i) {
+  element.addEventListener("click", closeLightbox);
+});
+
+// fleche retour
+document.querySelector(".fa-chevron-left").addEventListener("click", goToPrev);
+
+// fleche suivante
+document.querySelector(".fa-chevron-right").addEventListener("click", goToNext);
 
 // retour suivant et fermer avec les fleches du clavier
 document.addEventListener("keydown", function (e) {

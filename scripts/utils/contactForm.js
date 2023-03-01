@@ -1,7 +1,5 @@
 const modalbg = document.getElementById("bground");
 const contactButton = document.querySelector(".contactButton");
-const closeButton = document.querySelector(".closeModal");
-const sendButton = document.querySelector(".sendButton");
 const body = document.querySelector(".body");
 const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
@@ -12,56 +10,9 @@ const regEx = /^([A-Za-z]){2,}?([-]){0,}?([A-Za-z]){0,}/;
 const regExMail =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-// ouverture du modal
-const onOpenModal = () => {
-  modalbg.setAttribute("aria-hidden", "false");
-  body.classList.add("noScroll");
-  modalbg.style.display = "block";
-  firstName.focus();
-  document.querySelectorAll(".stopFocus").forEach((element) => {
-    element.setAttribute("tabindex", "-1");
-  });
-  document.querySelectorAll(".mediaWork").forEach((element) => {
-    element.setAttribute("tabindex", "-1");
-  });
-};
+// fonction
 
-// event d'ouverture
-contactButton.addEventListener("click", function () {
-  onOpenModal();
-});
-
-// fermeture du modal
-const onCloseModal = () => {
-  document.querySelectorAll(".stopFocus").forEach((element) => {
-    element.setAttribute("tabindex", "0");
-  });
-  document.querySelectorAll(".mediaWork").forEach((element) => {
-    element.setAttribute("tabindex", "0");
-  });
-  modalbg.setAttribute("aria-hidden", "true");
-  body.classList.remove("noScroll");
-  modalbg.style.display = "none";
-  contactButton.focus();
-};
-
-// event de fermeture
-closeButton.addEventListener("click", function () {
-  onCloseModal();
-});
-
-document.addEventListener("keydown", function (e) {
-  const key = e.key;
-  if (modalbg.getAttribute("aria-hidden") == "false" && key === "Escape") {
-    onCloseModal();
-  }
-});
-
-// verification du formulaire
-
-// verification prenom
-firstName.addEventListener("input", checkFirst);
-
+// verif prénom
 function checkFirst() {
   if (!firstName.value.match(regEx)) {
     firstName.parentElement.setAttribute("data-error-visible", "true"); // mise en forme si error vrai
@@ -74,9 +25,7 @@ function checkFirst() {
   }
 }
 
-// verification nom
-lastName.addEventListener("input", checkLast);
-
+// verif nom
 function checkLast() {
   if (!lastName.value.match(regEx)) {
     lastName.parentElement.setAttribute("data-error-visible", "true"); // mise en forme si error vrai
@@ -89,9 +38,7 @@ function checkLast() {
   }
 }
 
-// verification mail
-email.addEventListener("input", checkEmail);
-
+// verif mail
 function checkEmail() {
   if (!email.value.match(regExMail)) {
     // verification de la regex
@@ -105,9 +52,7 @@ function checkEmail() {
   }
 }
 
-// verification zone de texte
-textArea.addEventListener("input", checkTextArea);
-
+// verif message
 function checkTextArea() {
   if (!textArea.value.match(regEx)) {
     textArea.parentElement.setAttribute("data-error-visible", "true"); // mise en forme si error vrai
@@ -120,7 +65,7 @@ function checkTextArea() {
   }
 }
 
-// verification globale
+// verif globale
 function checkAll() {
   checkFirst();
   checkLast();
@@ -141,13 +86,74 @@ function validForm() {
   }
 }
 
+// event
+
+// ouverture modal
+contactButton.addEventListener("click", function () {
+  modalbg.setAttribute("aria-hidden", "false");
+  body.classList.add("noScroll");
+  modalbg.style.display = "block";
+  firstName.focus();
+  document.querySelectorAll(".stopFocus").forEach((element) => {
+    element.setAttribute("tabindex", "-1");
+  });
+  document.querySelectorAll(".mediaWork").forEach((element) => {
+    element.setAttribute("tabindex", "-1");
+  });
+});
+
+// fermeture modal
+document.querySelector(".closeModal").addEventListener("click", function () {
+  document.querySelectorAll(".stopFocus").forEach((element) => {
+    element.setAttribute("tabindex", "0");
+  });
+  document.querySelectorAll(".mediaWork").forEach((element) => {
+    element.setAttribute("tabindex", "0");
+  });
+  modalbg.setAttribute("aria-hidden", "true");
+  body.classList.remove("noScroll");
+  modalbg.style.display = "none";
+  contactButton.focus();
+});
+
+// fermeture modal avec echap
+document.addEventListener("keydown", function (e) {
+  const key = e.key;
+  if (modalbg.getAttribute("aria-hidden") == "false" && key === "Escape") {
+    document.querySelectorAll(".stopFocus").forEach((element) => {
+      element.setAttribute("tabindex", "0");
+    });
+    document.querySelectorAll(".mediaWork").forEach((element) => {
+      element.setAttribute("tabindex", "0");
+    });
+    modalbg.setAttribute("aria-hidden", "true");
+    body.classList.remove("noScroll");
+    modalbg.style.display = "none";
+    contactButton.focus();;
+  }
+});
+
+// verification prenom
+firstName.addEventListener("input", checkFirst);
+
+// verification nom
+lastName.addEventListener("input", checkLast);
+
+// verification mail
+email.addEventListener("input", checkEmail);
+
+// verification zone de texte
+textArea.addEventListener("input", checkTextArea);
+
 // envoi formulaire
-sendButton.addEventListener("click", function (e) {
+document.querySelector(".sendButton").addEventListener("click", function (e) {
   e.preventDefault();
   if (validForm() == true) {
-    sendButton.addEventListener("click", function () {
-      onCloseModal();
-    });
+    document
+      .querySelector(".sendButton")
+      .addEventListener("click", function () {
+        onCloseModal();
+      });
   } else {
     checkAll();
   }
