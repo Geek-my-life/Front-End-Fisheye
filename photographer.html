@@ -152,6 +152,13 @@
     <script src="/scripts/factories/cardwork.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
-    <script src="/scripts/utils/lightbox.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var script = document.createElement("script");
+        script.src = "/scripts/utils/lightbox.js";
+        document.body.appendChild(script);
+      });
+      defer;
+    </script>
   </body>
 </html>
