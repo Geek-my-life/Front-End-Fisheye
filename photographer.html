@@ -30,7 +30,7 @@
         <div class="photographHeader"></div>
       </div>
       <div class="dropdown">
-        <label class="dropdownLabel">Trier par :</label>
+        <label for="mySelect" class="dropdownLabel">Trier par :</label>
         <select id="mySelect" class="stopFocus">
           <option class="mySelectOption" value="popularite">Popularité</option>
           <option class="mySelectOption" value="date">Date</option>
@@ -46,10 +46,10 @@
         <div class="priceBox"></div>
       </div>
       <div id="lightbox">
-        <i class="fa-solid fa-xmark close" aria-label="fermeture"></i>
-        <i class="fa-solid fa-chevron-left chevron" aria-label="média précédent"></i>
+        <span class="icon fa-solid fa-xmark close" aria-label="fermeture"></span>
+        <span class="icon fa-solid fa-chevron-left chevron" aria-label="média précédent"></span>
         <div class="cardLightbox"></div>
-        <i class="fa-solid fa-chevron-right chevron" aria-label="média suivant"></i>
+        <span class="icon fa-solid fa-chevron-right chevron" aria-label="média suivant"></span>
       </div>
     </main>
 
@@ -71,7 +71,7 @@
               data-error="Vous devez entrer 2 caractères ou plus."
               data-error-visible="false"
             >
-              <label aria-label="prénom">Prénom</label>
+              <label for="first" aria-label="prénom">Prénom</label>
               <input
                 value="Veuillez saisir votre prénom"
                 class="textControl"
@@ -91,7 +91,7 @@
               data-error="Vous devez entrer 2 caractères ou plus."
               data-error-visible="false"
             >
-              <label aria-label="nom">Nom</label>
+              <label for="last" aria-label="nom">Nom</label>
               <input
                 value="Veuillez saisir votre nom"
                 class="textControl"
@@ -111,7 +111,7 @@
               data-error="Vous devez entrer une adresse email valide."
               data-error-visible="false"
             >
-              <label aria-label="email">Email</label>
+              <label for="email" aria-label="email">Email</label>
               <input
                 value="Veuillez saisir votre mail"
                 class="textControl"
@@ -131,7 +131,7 @@
               data-error="Vous devez entrer 2 caractères ou plus."
               data-error-visible="false"
             >
-              <label aria-label="votre message">Votre message</label>
+              <label for="textarea" aria-label="votre message">Votre message</label>
               <textarea
                 value="Veuillez saisir votre message"
                 aria-label="zone de saisie du prénom"
