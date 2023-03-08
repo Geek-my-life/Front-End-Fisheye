@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <script
       src="https://kit.fontawesome.com/ab907928cc.js"
@@ -46,10 +46,10 @@
         <div class="priceBox"></div>
       </div>
       <div id="lightbox">
-        <i class="fa-solid fa-xmark close"></i>
-        <i class="fa-solid fa-chevron-left chevron"></i>
+        <i class="fa-solid fa-xmark close" aria-label="fermeture"></i>
+        <i class="fa-solid fa-chevron-left chevron" aria-label="média précédent"></i>
         <div class="cardLightbox"></div>
-        <i class="fa-solid fa-chevron-right chevron"></i>
+        <i class="fa-solid fa-chevron-right chevron" aria-label="média suivant"></i>
       </div>
     </main>
 
@@ -73,6 +73,7 @@
             >
               <label aria-label="prénom">Prénom</label>
               <input
+                value="Veuillez saisir votre prénom"
                 class="textControl"
                 aria-label="zone de saisie du prénom"
                 type="text"
@@ -92,6 +93,7 @@
             >
               <label aria-label="nom">Nom</label>
               <input
+                value="Veuillez saisir votre nom"
                 class="textControl"
                 aria-label="zone de saisie du prénom"
                 type="text"
@@ -111,6 +113,7 @@
             >
               <label aria-label="email">Email</label>
               <input
+                value="Veuillez saisir votre mail"
                 class="textControl"
                 aria-label="zone de saisie du prénom"
                 type="email"
@@ -130,6 +133,7 @@
             >
               <label aria-label="votre message">Votre message</label>
               <textarea
+                value="Veuillez saisir votre message"
                 aria-label="zone de saisie du prénom"
                 name="message"
                 id="textarea"

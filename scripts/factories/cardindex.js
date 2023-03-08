@@ -15,7 +15,7 @@ class PhotographerCard {
     this.price = data.price;
     // @param {image} photo du photographe
     this.picture = `img/Profils/${data.portrait}`;
-    // renvoi les card */
+    // renvoi les card
     return this.create();
   }
 
