@@ -28,14 +28,6 @@
     <main id="main">
       <div>
         <div class="photographHeader"></div>
-        <button
-          class="buttonNone contactButton"
-          aria-label="bouton contactez moi"
-          role="bouton"
-          class="stopFocus"
-        >
-          Contactez-Moi
-        </button>
       </div>
       <div class="dropdown">
         <label class="dropdownLabel">Trier par :</label>
@@ -68,7 +60,11 @@
           <div class="contactName"></div>
           <i class="fa-solid fa-xmark closeModal" aria-label="fermeture"></i>
         </header>
-        <form id="form">
+        <form
+          method="post"
+          onsubmit="console.log('formulaire envoyé')"
+          id="form"
+        >
           <div>
             <div
               class="formData"
@@ -142,16 +138,25 @@
               ></textarea>
             </div>
           </div>
+          <input
+            type="submit"
+            value="Envoyer"
+            class="sendButton"
+            aria-label="envoyer"
+          />
         </form>
-        <button class="sendButton" aria-label="envoyer" role="bouton envoyer">
-          Envoyer
-        </button>
       </div>
     </div>
     <script src="scripts/factories/cardpages.js"></script>
     <script src="scripts/factories/cardwork.js"></script>
     <script src="scripts/pages/photographer.js"></script>
-    <script src="scripts/utils/contactForm.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var script = document.createElement("script");
+        script.src = "scripts/utils/contactForm.js";
+        document.body.appendChild(script);
+      });
+    </script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         var script = document.createElement("script");

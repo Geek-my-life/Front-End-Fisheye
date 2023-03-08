@@ -1,105 +1,50 @@
-function photographerWork(data) {
-  const { id, photographerId, title, image, likes, date, price, video } = data;
+class PhotographerWork {
+  // création de la card des réalisations
+  constructor(data) {
+    // @param {string} titre du media
+    this.title = data.title;
+    // @param {number} nombre de like
+    this.likes = data.likes;
+    // @param {date} date du media
+    this.date = data.date;
+    // @param {image} image du media
+    this.picture = `img/Photos/${data.image}`;
+    // @param {video} video du media
+    this.video = `img/Photos/${data.video}`;
+    // @param {image} image du like
+    this.heart = `img/heart.svg`;
+    // validation que c'est bien une video
+    this.isVideo = !!data.video;
+    // renvoi les card
+    return this.create();
+  }
 
-  const picture = `img/Photos/${image}`;
-  const videoMedia = `img/Photos/${video}`;
-  const heart = `img/heart.svg`;
-
-  function getWork() {
+  create() {
+    // variable de création en fonction d'une image ou d'une vidéo
     let media;
-
-    if(data.image){
-        media = document.createElement("img");
-        media.src = picture;
-        media.alt = title;
-        media.title = title;
-        media.ariaLabel = title;
-        media.className = "workImg workLightbox";
-        media.dataset.date = date;
-        media.dataset.like = likes;
-    } else if(data.video) {
-        media = document.createElement("video");
-        media.src = videoMedia;
-        media.alt = title;
-        media.ariaLabel = title;
-        media.title = title;
-        media.className = "workVideo workLightbox";
-        media.dataset.date = date;
-        media.dataset.like = likes;
+    // si c'est une vidéo
+    if (this.isVideo) {
+      media = `<video src=${this.video} title="${this.title}" data-date="${this.date}" data-like="${this.likes}" class="workVideo workLightbox" alt="${this.title}" aria-label="${this.title}"/>`;
     }
-    return media;
-}
-
-  function getUserCardWork() {
+    // sinon les images
+    else {
+      media = `<img src=${this.picture} title="${this.title}" data-date="${this.date}" data-like="${this.likes}" class="workImg workLightbox" alt="${this.title}" aria-label="${this.title}"/>`;
+    }
+    // création de la zone de la card
     const article = document.createElement("article");
+    // ajout de la class
     article.className = "cardWork";
-
-    const mediaBlock = document.createElement("div");
-    mediaBlock.className = "mediaWork";
-    mediaBlock.tabIndex = "0";
-
-    const media = getWork();
-
-    const titleBlock = document.createElement("div");
-    titleBlock.className = "titleBlock";
-
-    const titleImg = document.createElement("h3");
-    titleImg.textContent = title;
-    titleImg.className = "title";
-    titleImg.ariaLabel = title;
-
-    const likeblock = document.createElement("div");
-    likeblock.className = "likeBlock";
-    likeblock.setAttribute("onclick", 'like(event)');
-
-    const like = document.createElement("h3");
-    like.textContent = likes;
-    like.className = "likes";
-    like.ariaLabel = likes;
-
-    const heartBlock = document.createElement("img");
-    heartBlock.setAttribute("src", heart);
-    heartBlock.setAttribute("alt", "like");
-    heartBlock.ariaLabel = likes;
-    heartBlock.className = "heartWork";
-
-    const workId = document.createElement("p");
-    workId.textContent = id;
-    workId.className = "idWork";
-    workId.ariaLabel = id;
-    workId.style.display = "none";
-
-    const photographerPageId = document.createElement("p");
-    photographerPageId.textContent = photographerId;
-    photographerPageId.className = "profilsIdWork";
-    photographerPageId.ariaLabel = photographerId;
-    photographerPageId.style.display = "none";
-
-    const dateImg = document.createElement("p");
-    dateImg.textContent = date;
-    dateImg.className = "dateWork";
-    dateImg.ariaLabel = date;
-    dateImg.style.display = "none";
-
-    const workPrice = document.createElement("p");
-    workPrice.textContent = price;
-    workPrice.className = "priceWork";
-    workPrice.ariaLabel = price;
-    workPrice.style.display = "none";
-
-    likeblock.appendChild(like);
-    likeblock.appendChild(heartBlock);
-    titleBlock.appendChild(titleImg);
-    titleBlock.appendChild(likeblock);
-    mediaBlock.appendChild(media);
-    article.appendChild(mediaBlock);
-    article.appendChild(titleBlock);
-    article.appendChild(workId);
-    article.appendChild(photographerPageId);
-    article.appendChild(dateImg);
-    article.appendChild(workPrice);
-
+    // création de la card en html
+    article.innerHTML = `
+    <div class="mediaWork stopFocus" tabindex="0">${media}</div>
+    <div class="titleBlock">
+       <h3 class="title" aria-label="${this.title}">${this.title}</h3>
+       <div class="likeBlock" onclick="like(event)">
+        <h3 class="likes" aria-label="${this.likes}">${this.likes}</h3>
+        <img src="${this.heart}" alt="${this.likes}" aria-label="${this.likes}" class="heartWork"/>
+       </div>
+    </div>`;
+    // renvoi les card
     return article;
   }
-  return { getUserCardWork };
-};
+}

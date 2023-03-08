@@ -10,7 +10,7 @@ body {
 
 /* Card du photographe */
 
-.cardName {
+.cardHead {
   height: 300px;
   margin: 0 100px;
   padding: 0 50px;
@@ -18,10 +18,6 @@ body {
   justify-content: space-between;
   align-items: center;
   position: relative;
-}
-
-.buttonNone {
-  display: none;
 }
 
 .contactButton {
@@ -92,7 +88,7 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
-  margin-top: 50px;
+  margin: 50px 0;
 }
 
 .cardWork {
@@ -195,7 +191,7 @@ body {
   padding-top: 5px;
 }
 
-.photographerPrice {
+.priceBox {
   font-size: 1.4em;
 }
 

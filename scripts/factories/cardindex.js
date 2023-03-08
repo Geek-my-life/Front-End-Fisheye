@@ -1,54 +1,41 @@
-function photographerFactory(data) {
-  const { name, id, city, country, tagline, price, portrait } = data;
+class PhotographerCard {
+  // création de la card des photographes
+  constructor(data) {
+    // @param {string} nom du photographe
+    this.name = data.name;
+    // @param {number} id du photographe
+    this.id = data.id;
+    // @param {string} ville du photographe
+    this.city = data.city;
+    // @param {string} pays du photographe
+    this.country = data.country;
+    // @param {string} tagline du photographe
+    this.tagline = data.tagline;
+    // @param {number} tarif du photographe
+    this.price = data.price;
+    // @param {image} photo du photographe
+    this.picture = `img/Profils/${data.portrait}`;
+    // renvoi les card */
+    return this.create();
+  }
 
-  const picture = `img/Profils/${portrait}`;
-
-  function getUserCardDOM() {
+  create() {
+    // création de la zone de la card
     const article = document.createElement("article");
+    // ajout de la class
     article.className = "cardProfils";
-
-    const linkId = document.createElement("a");
-    linkId.href = `photographer.html?photographer=${id}`;
-    linkId.ariaLabel = "lien vers " + name;
-    linkId.setAttribute("onkeydown", "openlink(event");
-    linkId.className = "name";
-    linkId.tabIndex = "0";
-
-
-    const img = document.createElement("img");
-    img.setAttribute("src", picture);
-    img.setAttribute("alt", "vers la page de " + name);
-    img.ariaLabel = "photo de " + name;
-    img.className = "imguser";
-
-    const h2 = document.createElement("h2");
-    h2.textContent = name;
-    h2.ariaLabel = name;
-    h2.className = "h2name";
-
-    const location = document.createElement("h3");
-    location.textContent = city + ", " + country;
-    location.ariaLabel = city + ", " + country;
-    location.className = "h3city";
-
-    const tag = document.createElement("p");
-    tag.textContent = tagline;
-    tag.ariaLabel = tagline;
-    tag.className = "tag";
-
-    const pricePerDay = document.createElement("p");
-    pricePerDay.textContent = price + "€/jour";
-    pricePerDay.ariaLabel = price + "€/jour";
-    pricePerDay.className = "price";
-
-    linkId.appendChild(img);
-    linkId.appendChild(h2);
-    article.appendChild(linkId);
-    article.appendChild(location);
-    article.appendChild(tag);
-    article.appendChild(pricePerDay);
-
+    // création de la card en html
+    article.innerHTML = `
+    <a href= "photographer.html?photographer=${this.id}" aria-label="lien vers ${this.name}" class="name" tabindex="0" onkeydown="openlink(event)">
+      <img src=${this.picture} class="imguser" alt="vers la page de ${this.name}" aria-label="photo de ${this.name}"/>
+      <h2 aria-label="${this.name}" class="h2name">${this.name}</h2>
+      <h3 aria-label="${this.city} ${this.country}" class="h3city">
+        ${this.city}, ${this.country}
+      </h3>
+      <p aria-label="${this.tagline}" class="tag">${this.tagline}</p>
+      <p aria-label="${this.price}€/jour" class="price">${this.price}€/jour</p>
+    </a>`;
+    // renvoi les card
     return article;
   }
-  return { getUserCardDOM };
 }
