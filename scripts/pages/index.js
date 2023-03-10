@@ -2,14 +2,12 @@
 (function () {
   // recuperation de la data
   async function getPhotographers() {
-    // récupère les données depuis le fichier json
-    return fetch("data/photographers.json").then((response) => response.json());
+    return fetch("data/photographers.json").then((response) => response.json()); // récupère les données depuis le fichier json
   }
 
   // creation des differentes card des photographes en fonction de la data
   async function displayData(photographers) {
-    // localisation des card
-    const photographersSection = document.querySelector(".photographerSection");
+    const photographersSection = document.querySelector(".photographerSection"); // localisation des card
     // pour chaque photographe, création d'une card en fonction de la class PhotographerCard
     photographers.forEach((photographer) => {
       const userCardDOM = new PhotographerCard(photographer);
@@ -19,9 +17,8 @@
 
   // init
   async function init() {
-    // récupère les datas des photographes
     const { photographers } = await getPhotographers();
-    displayData(photographers);
+    displayData(photographers); // récupère les datas des photographes
   }
 
   init();

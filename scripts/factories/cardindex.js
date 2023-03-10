@@ -1,31 +1,22 @@
 class PhotographerCard {
   // création de la card des photographes
   constructor(data) {
-    // @param {string} nom du photographe
-    this.name = data.name;
-    // @param {number} id du photographe
-    this.id = data.id;
-    // @param {string} ville du photographe
-    this.city = data.city;
-    // @param {string} pays du photographe
-    this.country = data.country;
-    // @param {string} tagline du photographe
-    this.tagline = data.tagline;
-    // @param {number} tarif du photographe
-    this.price = data.price;
-    // @param {image} photo du photographe
-    this.picture = `img/Profils/${data.portrait}`;
-    // renvoi les card
-    return this.create();
+    this.name = data.name; // @param {string} nom du photographe
+    this.id = data.id; // @param {number} id du photographe
+    this.city = data.city; // @param {string} ville du photographe
+    this.country = data.country; // @param {string} pays du photographe
+    this.tagline = data.tagline; // @param {string} tagline du photographe
+    this.price = data.price; // @param {number} tarif du photographe
+    this.picture = `img/Profils/${data.portrait}`; // @param {image} photo du photographe
+    return this.create(); // renvoi les card
   }
 
   create() {
-    // création de la zone de la card
-    const article = document.createElement("article");
-    // ajout de la class
-    article.className = "cardProfils";
+    
+    const article = document.createElement("article"); // création de la zone de la card
+    article.className = "cardProfils"; // ajout de la class
     // création de la card en html
-    article.innerHTML = `
+    article.innerHTML = ` 
     <a href= "photographer.html?photographer=${this.id}" aria-label="lien vers ${this.name}" class="name" tabindex="0" onkeydown="openlink(event)">
       <img src=${this.picture} class="imguser" alt="vers la page de ${this.name}" aria-label="photo de ${this.name}"/>
       <h2 aria-label="${this.name}" class="h2name">${this.name}</h2>
@@ -35,7 +26,6 @@ class PhotographerCard {
       <p aria-label="${this.tagline}" class="tag">${this.tagline}</p>
       <p aria-label="${this.price}€/jour" class="price">${this.price}€/jour</p>
     </a>`;
-    // renvoi les card
-    return article;
+    return article; // renvoi les card
   }
 }

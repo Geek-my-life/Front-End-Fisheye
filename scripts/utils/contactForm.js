@@ -152,9 +152,9 @@
       body.classList.remove("noScroll"); // remettre le scroll
       modalbg.style.display = "none"; // disparition de la modal
       contactButton.focus(); // remmetre le focus sur le bouton de contact
-    } // sinon on reverifie
+    } 
     else {
-      checkAll();
+      checkAll(); // sinon on reverifie
     }
   });
 })();

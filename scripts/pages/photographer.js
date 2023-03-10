@@ -2,8 +2,7 @@
 (function () {
   // recuperation de la data
   async function getPhotographers() {
-    // récupère les données depuis le fichier json
-    return fetch("data/photographers.json").then((response) => response.json());
+    return fetch("data/photographers.json").then((response) => response.json()); // récupère les données depuis le fichier json
   }
 
   // variable pour connaitre le parametre ID de la page sur laquelle nous sommes
@@ -13,10 +12,8 @@
 
   // creation des differentes card d'en-tete des photographes en fonction de la data
   async function displayData(photographers) {
-    // localisation des card
-    const photographersSection = document.querySelector(".photographHeader");
-    // pour chaque photographe, création d'une card en fonction de l'id de la page
-    const photographerById = photographers
+    const photographersSection = document.querySelector(".photographHeader"); // localisation des card
+    const photographerById = photographers // pour chaque photographe, création d'une card en fonction de l'id de la page
       .filter((photographer) => photographer.id == pageId)
       .forEach((photographerById) => {
         const userCardDOM = new PhotographerPage(photographerById);
@@ -26,16 +23,11 @@
 
   // creation des differentes card des réalisations des photographes en fonction de la data
   async function displayMediaData(media) {
-    // localisation des card
-    const mediaSection = document.querySelector(".photographWork");
-    // effacement du contenu à chaque mise à jour
-    mediaSection.innerHTML = "";
-    // connaitre sur quel tri on est
-    const mediaOrder = document.getElementById("mySelect").value;
-    // pour chaque photographe, création d'une card en fonction de l'id de la page
-    const mediaById = media
-      .filter((media) => media.photographerId == pageId)
-      // tri en fonction de la valeur de mediaOrder
+    const mediaSection = document.querySelector(".photographWork"); // localisation des card
+    mediaSection.innerHTML = ""; // effacement du contenu à chaque mise à jour
+    const mediaOrder = document.getElementById("mySelect").value; // connaitre sur quel tri on est
+    const mediaById = media // pour chaque photographe, création d'une card en fonction de l'id de la page
+      .filter((media) => media.photographerId == pageId) // tri en fonction de la valeur de mediaOrder
       .sort((a, b) => {
         if (mediaOrder === "popularite") {
           const aPopularite = a.likes;
@@ -73,37 +65,26 @@
 
   // mise à jour du total de like du photographe
   async function updateTotalLikes() {
-    // localisation des likes
-    const pictures = document.querySelector(".photographWork");
-    // récupération des likes
-    const likes = pictures.querySelectorAll(".likes");
-    // localisation de la box du total
-    const totalLikesNumber = document.querySelector(".totalLikesNumber");
-    // total de base 0
-    let totalLikes = 0;
-    // formule pour implémenter la box du total
-    likes.forEach((like) => (totalLikes += parseInt(like.textContent)));
-    // écriture du total
-    totalLikesNumber.textContent = totalLikes;
+    const pictures = document.querySelector(".photographWork"); // localisation des likes
+    const likes = pictures.querySelectorAll(".likes"); // récupération des likes
+    const totalLikesNumber = document.querySelector(".totalLikesNumber"); // localisation de la box du total
+    let totalLikes = 0; // total de base 0
+    likes.forEach((like) => (totalLikes += parseInt(like.textContent))); // formule pour implémenter la box du total
+    totalLikesNumber.textContent = totalLikes; // écriture du total
   }
 
   // mise à jour du tarif du photographe en fonction de l'id de la page
   async function photographerPrice(photographers) {
-    // filtre pour connaitre l'id
     const photographerById = photographers.find(
       (photographer) => photographer.id == pageId
-    );
-    // si pas d'id
-    if (!photographerById) return;
-    // sinon localisation de la box
-    const photographersSection = document.querySelector(".priceBox");
-    // mise à jour du tarif
-    photographersSection.innerText = photographerById.price + "€/jour";
+    ); // filtre pour connaitre l'id
+    if (!photographerById) return; // si pas d'id
+    const photographersSection = document.querySelector(".priceBox"); // sinon localisation de la box
+    photographersSection.innerText = photographerById.price + "€/jour"; // mise à jour du tarif
   }
 
   async function init() {
-    // récupère les datas des photographes
-    const { photographers, media } = await getPhotographers();
+    const { photographers, media } = await getPhotographers(); // récupère les datas des photographes
     displayData(photographers);
     displayMediaData(media);
     document
