@@ -1,3 +1,7 @@
+/* eslint-disable linebreak-style */
+/* eslint-disable quotes */
+/* eslint-disable linebreak-style */
+
 class PhotographerPage {
   // création de la card des photographes pour leurs pages
   constructor(data) {
@@ -6,8 +10,9 @@ class PhotographerPage {
     this.country = data.country; // @param {string} pays du photographe
     this.tagline = data.tagline; // @param {string} tagline du photographe
     this.picture = `img/Profils/${data.portrait}`; // @param {image} photo du photographe
-    return this.create(); // renvoi les card
+    this.article = this.create(); // renvoi les card
   }
+
   create() {
     const article = document.createElement("article"); // création de la zone de la card
     article.className = "cardHead"; // ajout de la class

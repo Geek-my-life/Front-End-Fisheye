@@ -1,25 +1,28 @@
-// pour eviter d'utiliser des fonctions d'autres pages
-(function () {
-  // recuperation de la data
-  async function getPhotographers() {
-    return fetch("data/photographers.json").then((response) => response.json()); // récupère les données depuis le fichier json
-  }
+/* eslint-disable linebreak-style */
+/* eslint-disable quotes */
+/* eslint-disable linebreak-style */
 
-  // creation des differentes card des photographes en fonction de la data
-  async function displayData(photographers) {
-    const photographersSection = document.querySelector(".photographerSection"); // localisation des card
-    // pour chaque photographe, création d'une card en fonction de la class PhotographerCard
-    photographers.forEach((photographer) => {
-      const userCardDOM = new PhotographerCard(photographer);
-      photographersSection.appendChild(userCardDOM);
-    });
-  }
+// recuperation de la data
+async function getPhotographers() {
+  return fetch("data/photographers.json").then((response) => response.json()); // récupère les données depuis le fichier json
+}
+// creation des differentes card des photographes en fonction de la data
+async function displayData(photographers) {
+  const photographersSection = document.querySelector(".photographerSection");
+  const promises = photographers.map((photographer) => {
+    const userCardDOM = new PhotographerCard(photographer);
+    return userCardDOM.article; // on retourne l'article créé
+  });
+  const articles = await Promise.all(promises); // résolution promesses de création de cartes
+  articles.forEach((article) => {
+    photographersSection.appendChild(article);
+  });
+}
 
-  // init
-  async function init() {
-    const { photographers } = await getPhotographers();
-    displayData(photographers); // récupère les datas des photographes
-  }
+// init
+async function init() {
+  const { photographers } = await getPhotographers();
+  displayData(photographers); // récupère les datas des photographes
+}
 
-  init();
-})();
+init();

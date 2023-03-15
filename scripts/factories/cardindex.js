@@ -1,3 +1,7 @@
+/* eslint-disable linebreak-style */
+/* eslint-disable quotes */
+/* eslint-disable linebreak-style */
+
 class PhotographerCard {
   // création de la card des photographes
   constructor(data) {
@@ -8,11 +12,10 @@ class PhotographerCard {
     this.tagline = data.tagline; // @param {string} tagline du photographe
     this.price = data.price; // @param {number} tarif du photographe
     this.picture = `img/Profils/${data.portrait}`; // @param {image} photo du photographe
-    return this.create(); // renvoi les card
+    this.article = this.create(); // renvoi les card
   }
 
   create() {
-    
     const article = document.createElement("article"); // création de la zone de la card
     article.className = "cardProfils"; // ajout de la class
     // création de la card en html
