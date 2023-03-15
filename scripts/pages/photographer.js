@@ -21,6 +21,7 @@ async function displayData(photographers) {
   );
 
   filteredPhotographers.forEach((photographerById) => {
+    // eslint-disable-next-line no-undef
     const userCardDOM = new PhotographerPage(photographerById);
     userCardDOM.article = userCardDOM.create();
     photographersSection.appendChild(userCardDOM.article);
@@ -43,6 +44,7 @@ async function displayMediaData(media) {
   }
 
   mediaById.forEach((mediaItem) => {
+    // eslint-disable-next-line no-undef
     const userWorkDOM = new PhotographerWork(mediaItem);
     userWorkDOM.article = userWorkDOM.create();
     mediaSection.appendChild(userWorkDOM.article);
@@ -62,6 +64,7 @@ async function updateTotalLikes() {
 }
 
 // event pour l'ajout d'un like
+// eslint-disable-next-line no-unused-vars
 function like(event) {
   const target = event.currentTarget;
 

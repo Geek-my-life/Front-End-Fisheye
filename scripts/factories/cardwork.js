@@ -2,6 +2,7 @@
 /* eslint-disable quotes */
 /* eslint-disable linebreak-style */
 
+// eslint-disable-next-line no-unused-vars
 class PhotographerWork {
   // création de la card des réalisations
   constructor(data) {

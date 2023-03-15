@@ -10,6 +10,7 @@ async function getPhotographers() {
 async function displayData(photographers) {
   const photographersSection = document.querySelector(".photographerSection");
   const promises = photographers.map((photographer) => {
+    // eslint-disable-next-line no-undef
     const userCardDOM = new PhotographerCard(photographer);
     return userCardDOM.article; // on retourne l'article créé
   });

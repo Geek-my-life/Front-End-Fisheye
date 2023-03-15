@@ -2,6 +2,7 @@
 /* eslint-disable quotes */
 /* eslint-disable linebreak-style */
 
+// eslint-disable-next-line no-unused-vars
 class PhotographerCard {
   // création de la card des photographes
   constructor(data) {
