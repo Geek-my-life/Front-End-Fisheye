@@ -34,7 +34,7 @@ class PhotographerWork {
     <div class="mediaWork stopFocus" tabindex="0">${media}</div>
     <div class="titleBlock">
        <h3 class="title" aria-label="${this.title}">${this.title}</h3>
-       <div class="likeBlock" onclick="like(event)">
+       <div class="likeBlock stopFocus likeButton" tabindex="0">
         <h3 class="likes" aria-label="${this.likes}">${this.likes}</h3>
         <img src="${this.heart}" alt="${this.likes}" aria-label="${this.likes}" class="heartWork"/>
        </div>

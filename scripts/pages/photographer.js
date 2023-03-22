@@ -64,7 +64,6 @@ async function updateTotalLikes() {
 }
 
 // event pour l'ajout d'un like
-// eslint-disable-next-line no-unused-vars
 function like(event) {
   const target = event.currentTarget;
 
@@ -74,6 +73,7 @@ function like(event) {
     updateTotalLikes();
   }
 }
+
 // mise à jour du tarif du photographe en fonction de l'id de la page
 async function photographerPrice(photographers) {
   const photographerById = photographers.find(
@@ -93,6 +93,18 @@ async function init() {
     .addEventListener("change", () => displayMediaData(media));
   updateTotalLikes();
   photographerPrice(photographers);
+  const likeButton = document.querySelectorAll(".likeButton");
+  likeButton.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      like(event);
+    });
+    button.addEventListener("keydown", (event) => {
+      const eventKey = event.key;
+      if (eventKey === "Enter") {
+        like(event);
+      }
+    });
+  });
 }
 
 init();

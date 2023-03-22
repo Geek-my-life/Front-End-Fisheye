@@ -34,6 +34,10 @@ function launchLightbox(element) {
   lightbox.style.display = "flex"; // affichage de la lightbox
   const imageLightbox = element.querySelector(".workLightbox"); // recherche du media
   renderMedia(imageLightbox); // affichage de la lightbox en fonction du media sur lequel on a clic
+  document.querySelectorAll(".stopFocus").forEach((item) => {
+    // retirer le focus des elements en arriere plan
+    item.setAttribute("tabindex", "-1");
+  });
 }
 
 // fleche retour
@@ -51,6 +55,10 @@ function goToNext() {
 // fermeture formulaire
 function closeLightbox() {
   lightbox.style.display = "none"; // retire la lightbox
+  document.querySelectorAll(".stopFocus").forEach((item) => {
+    // retirer le focus des elements en arriere plan
+    item.setAttribute("tabindex", "0");
+  });
 }
 
 // event
