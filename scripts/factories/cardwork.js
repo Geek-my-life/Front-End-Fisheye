@@ -5,7 +5,9 @@
 // eslint-disable-next-line no-unused-vars
 class PhotographerWork {
   // création de la card des réalisations
-  constructor(data) {
+  constructor(data, { onLike, onSelected: onSelectedCb }) {
+    this.onSelectedCb = onSelectedCb;
+    this.onLike = onLike;
     this.title = data.title; // @param {string} titre du media
     this.likes = data.likes; // @param {number} nombre de like
     this.date = data.date; // @param {date} date du media
@@ -40,6 +42,43 @@ class PhotographerWork {
        </div>
     </div>`;
     // renvoi les card
+    // event pour l'ajout d'un like
+    const like = (event) => {
+      const target = event.currentTarget;
+
+      if (!target.hasAttribute("liked")) {
+        target.setAttribute("liked", "");
+        target.querySelector(".likes").textContent = Number(target.textContent) + 1;
+        this.onLike();
+      }
+    };
+    const likeButton = article.querySelector(".likeButton");
+    likeButton.addEventListener("click", (event) => {
+      like(event);
+    });
+    likeButton.addEventListener("keydown", (event) => {
+      const eventKey = event.key;
+      if (eventKey === "Enter") {
+        like(event);
+      }
+    });
+
+    const mediaWork = article.querySelector(".mediaWork");
+
+    // lancement formulaire
+    const onSelected = () => {
+      const imageLightbox = mediaWork.querySelector(".workLightbox"); // recherche du media
+      this.onSelectedCb(imageLightbox); // affichage lightbox en fonction du media sur lequel clic
+    };
+
+    // pour chaque card, event au click ou en keydown
+    mediaWork.addEventListener("click", onSelected);
+    mediaWork.addEventListener("keydown", (e) => {
+      const eventKey = e.key;
+      if (eventKey === "Enter") {
+        onSelected();
+      }
+    });
     return article;
   }
 }

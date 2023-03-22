@@ -1,4 +1,6 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable comma-dangle */
+/* eslint-disable linebreak-style */
 /* eslint-disable quotes */
 /* eslint-disable linebreak-style */
 /* eslint-disable eqeqeq */
@@ -13,11 +15,14 @@ const queryString = window.location.search;
 const params = new URLSearchParams(queryString);
 const pageId = params.get("photographer");
 
+// eslint-disable-next-line no-undef
+const lightbox = new Lightbox();
+
 // creation des differentes card d'en-tete des photographes en fonction de la data
 async function displayData(photographers) {
   const photographersSection = document.querySelector(".photographHeader"); // localisation des card
   const filteredPhotographers = photographers.filter(
-    (photographer) => photographer.id == pageId,
+    (photographer) => photographer.id == pageId
   );
 
   filteredPhotographers.forEach((photographerById) => {
@@ -25,29 +30,6 @@ async function displayData(photographers) {
     const userCardDOM = new PhotographerPage(photographerById);
     userCardDOM.article = userCardDOM.create();
     photographersSection.appendChild(userCardDOM.article);
-  });
-}
-
-// creation des differentes card des réalisations des photographes en fonction de la data
-async function displayMediaData(media) {
-  const mediaSection = document.querySelector(".photographWork");
-  mediaSection.innerHTML = "";
-  const mediaOrder = document.getElementById("mySelect").value;
-  const mediaById = media.filter((mediaId) => mediaId.photographerId == pageId);
-
-  if (mediaOrder === "popularite") {
-    mediaById.sort((a, b) => b.likes - a.likes);
-  } else if (mediaOrder === "date") {
-    mediaById.sort((a, b) => b.date - a.date);
-  } else if (mediaOrder === "titre") {
-    mediaById.sort((a, b) => a.title.localeCompare(b.title));
-  }
-
-  mediaById.forEach((mediaItem) => {
-    // eslint-disable-next-line no-undef
-    const userWorkDOM = new PhotographerWork(mediaItem);
-    userWorkDOM.article = userWorkDOM.create();
-    mediaSection.appendChild(userWorkDOM.article);
   });
 }
 
@@ -63,21 +45,39 @@ async function updateTotalLikes() {
   totalLikesNumber.textContent = totalLikes; // écriture du total
 }
 
-// event pour l'ajout d'un like
-function like(event) {
-  const target = event.currentTarget;
+// creation des differentes card des réalisations des photographes en fonction de la data
+async function displayCardData(card) {
+  const mediaSection = document.querySelector(".photographWork");
+  mediaSection.innerHTML = "";
+  const mediaOrder = document.getElementById("mySelect").value;
+  const cardsById = card.filter((cardId) => cardId.photographerId == pageId);
 
-  if (!target.hasAttribute("liked")) {
-    target.setAttribute("liked", "");
-    target.querySelector(".likes").textContent = Number(target.textContent) + 1;
-    updateTotalLikes();
+  if (mediaOrder === "popularite") {
+    cardsById.sort((a, b) => b.likes - a.likes);
+  } else if (mediaOrder === "date") {
+    cardsById.sort((a, b) => b.date - a.date);
+  } else if (mediaOrder === "titre") {
+    cardsById.sort((a, b) => a.title.localeCompare(b.title));
   }
+
+  cardsById.forEach((cardId) => {
+    // eslint-disable-next-line no-undef, max-len
+    const userWorkDOM = new PhotographerWork(cardId, {
+      onLike: updateTotalLikes,
+      onSelected: (media) => {
+        lightbox.open();
+        lightbox.renderMedia(media);
+      },
+    });
+    userWorkDOM.article = userWorkDOM.create();
+    mediaSection.appendChild(userWorkDOM.article);
+  });
 }
 
 // mise à jour du tarif du photographe en fonction de l'id de la page
 async function photographerPrice(photographers) {
   const photographerById = photographers.find(
-    (photographer) => photographer.id == pageId,
+    (photographer) => photographer.id == pageId
   ); // filtre pour connaitre l'id
   if (!photographerById) return; // si pas d'id
   const photographersSection = document.querySelector(".priceBox"); // sinon localisation de la box
@@ -87,24 +87,12 @@ async function photographerPrice(photographers) {
 async function init() {
   const { photographers, media } = await getPhotographers(); // récupère les datas des photographes
   displayData(photographers);
-  displayMediaData(media);
+  displayCardData(media);
   document
     .getElementById("mySelect")
-    .addEventListener("change", () => displayMediaData(media));
+    .addEventListener("change", () => displayCardData(media));
   updateTotalLikes();
   photographerPrice(photographers);
-  const likeButton = document.querySelectorAll(".likeButton");
-  likeButton.forEach((button) => {
-    button.addEventListener("click", (event) => {
-      like(event);
-    });
-    button.addEventListener("keydown", (event) => {
-      const eventKey = event.key;
-      if (eventKey === "Enter") {
-        like(event);
-      }
-    });
-  });
 }
 
 init();
