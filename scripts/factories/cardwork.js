@@ -41,7 +41,7 @@ class PhotographerWork {
         <img src="${this.heart}" alt="${this.likes}" aria-label="${this.likes}" class="heartWork"/>
        </div>
     </div>`;
-    // renvoi les card
+
     // event pour l'ajout d'un like
     const like = (event) => {
       const target = event.currentTarget;
@@ -52,10 +52,14 @@ class PhotographerWork {
         this.onLike();
       }
     };
+
+    // event au clic pour les like
     const likeButton = article.querySelector(".likeButton");
     likeButton.addEventListener("click", (event) => {
       like(event);
     });
+
+    // event keydown pour les like
     likeButton.addEventListener("keydown", (event) => {
       const eventKey = event.key;
       if (eventKey === "Enter") {
@@ -79,6 +83,9 @@ class PhotographerWork {
         onSelected();
       }
     });
+
+    // renvoi les card
+
     return article;
   }
 }
