@@ -17,6 +17,8 @@ const pageId = params.get("photographer");
 
 // eslint-disable-next-line no-undef
 const lightbox = new Lightbox();
+// eslint-disable-next-line no-undef
+const contactForm = new ContactForm();
 
 // creation des differentes card d'en-tete des photographes en fonction de la data
 async function displayData(photographers) {
@@ -27,7 +29,11 @@ async function displayData(photographers) {
 
   filteredPhotographers.forEach((photographerById) => {
     // eslint-disable-next-line no-undef
-    const userCardDOM = new PhotographerPage(photographerById);
+    const userCardDOM = new PhotographerPage(photographerById, {
+      onSelected: () => {
+        contactForm.open();
+      },
+    });
     userCardDOM.article = userCardDOM.create();
     photographersSection.appendChild(userCardDOM.article);
   });

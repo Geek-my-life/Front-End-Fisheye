@@ -18,6 +18,7 @@ class Lightbox {
       });
     });
 
+    // fermeture formulaire au clic sur la croix
     this.closeButtons.forEach((element) => {
       element.addEventListener("keydown", (e) => {
         const eventKey = e.key;
@@ -34,6 +35,7 @@ class Lightbox {
         this.goToPrev();
       });
 
+    // clavier fleche aller au media précédent
     this.lightbox
       .querySelector(".fa-chevron-left")
       .addEventListener("keydown", (e) => {
@@ -50,6 +52,7 @@ class Lightbox {
         this.goToNext();
       });
 
+    // clavier fleche aller au media précédent
     this.lightbox
       .querySelector(".fa-chevron-right")
       .addEventListener("keydown", (e) => {

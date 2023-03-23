@@ -69,7 +69,7 @@ class PhotographerWork {
 
     const mediaWork = article.querySelector(".mediaWork");
 
-    // lancement formulaire
+    // lancement lightbox
     const onSelected = () => {
       const imageLightbox = mediaWork.querySelector(".workLightbox"); // recherche du media
       this.onSelectedCb(imageLightbox); // affichage lightbox en fonction du media sur lequel clic

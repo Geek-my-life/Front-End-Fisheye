@@ -5,7 +5,8 @@
 // eslint-disable-next-line no-unused-vars
 class PhotographerPage {
   // création de la card des photographes pour leurs pages
-  constructor(data) {
+  constructor(data, { onSelected: onSelectedCb }) {
+    this.onSelectedCb = onSelectedCb;
     this.name = data.name; // @param {string} nom du photographe
     this.city = data.city; // @param {string} ville du photographe
     this.country = data.country; // @param {string} pays du photographe
@@ -16,7 +17,9 @@ class PhotographerPage {
 
   create() {
     const article = document.createElement("article"); // création de la zone de la card
+
     article.className = "cardHead"; // ajout de la class
+
     // création de la card en html
     article.innerHTML = `
       <div class="cardName"> 
@@ -29,6 +32,22 @@ class PhotographerPage {
       </button>
       <img src=${this.picture} class="imguser" alt="vers la page de ${this.name}" aria-label="photo de ${this.name}"/>
       `;
+
+    const contactButton = article.querySelector(".contactButton");
+
+    // lancement lightbox
+    const onSelected = () => {
+      this.onSelectedCb(contactButton); // affichage lightbox en fonction du media sur lequel clic
+    };
+
+    // pour chaque card, event au click ou en keydown
+    contactButton.addEventListener("click", onSelected);
+    contactButton.addEventListener("keydown", (e) => {
+      const eventKey = e.key;
+      if (eventKey === "Enter") {
+        onSelected();
+      }
+    });
     return article; // renvoi les card
   }
 }
