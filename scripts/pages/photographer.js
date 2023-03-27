@@ -68,7 +68,7 @@ async function displayCardData(card) {
 
   cardsById.forEach((cardId) => {
     // eslint-disable-next-line no-undef, max-len
-    const userWorkDOM = new PhotographerWork(cardId, {
+    const userWorkDOM = new PhotographerWork(cardId, { // MediaFactory.createMedia
       onLike: updateTotalLikes,
       onSelected: (media) => {
         lightbox.open();
