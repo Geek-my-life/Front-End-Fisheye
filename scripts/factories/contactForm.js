@@ -160,7 +160,6 @@ class ContactForm {
     this.modalbg.setAttribute("aria-hidden", "true"); // zone de la modal invisible
     this.body.classList.remove("noScroll"); // remettre le scroll
     this.modalbg.style.display = "none"; // disparition de la modal
-    this.contactButton.focus(); // remmetre le focus sur le bouton de contact
   }
 
   send(e) {
