@@ -60,24 +60,46 @@ async function displayCardData(card) {
 
   if (mediaOrder === "popularite") {
     cardsById.sort((a, b) => b.likes - a.likes);
-  } else if (mediaOrder === "date") {
-    cardsById.sort((a, b) => b.date - a.date);
-  } else if (mediaOrder === "titre") {
-    cardsById.sort((a, b) => a.title.localeCompare(b.title));
   }
 
   cardsById.forEach((cardId) => {
     // eslint-disable-next-line no-undef, max-len
-    const userWorkDOM = new PhotographerWork(cardId, { // MediaFactory.createMedia
+    const userWorkDOM = new PhotographerWork(cardId, {
+      // MediaFactory.createMedia
       onLike: updateTotalLikes,
       onSelected: (media) => {
         lightbox.open();
         lightbox.renderMedia(media);
       },
     });
-    userWorkDOM.article = userWorkDOM.create();
     mediaSection.appendChild(userWorkDOM.article);
   });
+}
+
+function order(cardData) {
+  const photographWork = document.querySelector(".photographWork");
+  const cardsDataById = cardData.filter(
+    (cardId) => cardId.photographerId == pageId
+  );
+  const mediaOrder = document.getElementById("mySelect").value;
+
+  if (mediaOrder === "popularite") {
+    cardsDataById.sort((a, b) => b.likes - a.likes);
+  } else if (mediaOrder === "date") {
+    cardsDataById.sort((a, b) => b.date - a.date);
+  } else if (mediaOrder === "titre") {
+    cardsDataById.sort((a, b) => a.title.localeCompare(b.title));
+  }
+
+  const sortedCardsId = cardsDataById.map((card) => card.id);
+
+  [...photographWork.children]
+    // eslint-disable-next-line operator-linebreak
+    .sort((a, b) => sortedCardsId.indexOf(parseInt(a.id, 10)) -
+    sortedCardsId.indexOf(parseInt(b.id, 10)))
+    .forEach((node) => {
+      photographWork.appendChild(node);
+    });
 }
 
 // mise à jour du tarif du photographe en fonction de l'id de la page
@@ -96,7 +118,7 @@ async function init() {
   displayCardData(media);
   document
     .getElementById("mySelect")
-    .addEventListener("change", () => displayCardData(media));
+    .addEventListener("change", () => order(media));
   updateTotalLikes();
   photographerPrice(photographers);
 }

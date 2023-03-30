@@ -8,6 +8,7 @@ class PhotographerWork {
   constructor(data, { onLike, onSelected: onSelectedCb }) {
     this.onSelectedCb = onSelectedCb;
     this.onLike = onLike;
+    this.id = data.id;
     this.title = data.title; // @param {string} titre du media
     this.likes = data.likes; // @param {number} nombre de like
     this.date = data.date; // @param {date} date du media
@@ -30,6 +31,7 @@ class PhotographerWork {
 
     const article = document.createElement("article"); // création de la zone de la card
 
+    article.id = this.id;
     article.className = "cardWork"; // ajout de la class
     // création de la card en html
     article.innerHTML = `
