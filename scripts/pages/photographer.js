@@ -24,12 +24,13 @@ const contactForm = new ContactForm();
 async function displayData(photographers) {
   const photographersSection = document.querySelector(".photographHeader"); // localisation des card
   const filteredPhotographers = photographers.filter(
-    (photographer) => photographer.id == pageId
+    (photographer) => photographer.id == pageId // filtre en fonction de l'id de la page
   );
 
   filteredPhotographers.forEach((photographerById) => {
     // eslint-disable-next-line no-undef
     const userCardDOM = new PhotographerPage(photographerById, {
+      // création de la card
       onSelected: () => {
         contactForm.open();
       },
@@ -55,9 +56,10 @@ async function updateTotalLikes() {
 async function displayCardData(card) {
   const mediaSection = document.querySelector(".photographWork");
   mediaSection.innerHTML = "";
-  const mediaOrder = document.getElementById("mySelect").value;
+  const mediaOrder = document.getElementById("mySelect").value; // valeur de la sélection
+  // filtre en fonction de l'id de la page
   const cardsById = card.filter((cardId) => cardId.photographerId == pageId);
-
+  // tri en fonction de popularite
   if (mediaOrder === "popularite") {
     cardsById.sort((a, b) => b.likes - a.likes);
   }
@@ -77,26 +79,29 @@ async function displayCardData(card) {
 }
 
 function order(cardData) {
-  const photographWork = document.querySelector(".photographWork");
+  // fonction de tri
+  const photographWork = document.querySelector(".photographWork"); // div des réalisations
   const cardsDataById = cardData.filter(
-    (cardId) => cardId.photographerId == pageId
+    (cardId) => cardId.photographerId == pageId // filtre en fonction de l'id du photographe
   );
-  const mediaOrder = document.getElementById("mySelect").value;
+  const mediaOrder = document.getElementById("mySelect").value; // valeur de la sélection
 
   if (mediaOrder === "popularite") {
-    cardsDataById.sort((a, b) => b.likes - a.likes);
+    cardsDataById.sort((a, b) => b.likes - a.likes); // tri en fonction de popularite
   } else if (mediaOrder === "date") {
-    cardsDataById.sort((a, b) => b.date - a.date);
+    cardsDataById.sort((a, b) => b.date - a.date); // tri en fonction de la date
   } else if (mediaOrder === "titre") {
-    cardsDataById.sort((a, b) => a.title.localeCompare(b.title));
+    cardsDataById.sort((a, b) => a.title.localeCompare(b.title)); // tri en fonction du titre
   }
 
   const sortedCardsId = cardsDataById.map((card) => card.id);
 
-  [...photographWork.children]
+  [...photographWork.children] // création d'un tableau des réalisations
     // eslint-disable-next-line operator-linebreak
-    .sort((a, b) => sortedCardsId.indexOf(parseInt(a.id, 10)) -
-    sortedCardsId.indexOf(parseInt(b.id, 10)))
+    .sort(
+      // eslint-disable-next-line max-len
+      (a, b) => sortedCardsId.indexOf(parseInt(a.id, 10)) - sortedCardsId.indexOf(parseInt(b.id, 10))
+    )
     .forEach((node) => {
       photographWork.appendChild(node);
     });
@@ -118,7 +123,7 @@ async function init() {
   displayCardData(media);
   document
     .getElementById("mySelect")
-    .addEventListener("change", () => order(media));
+    .addEventListener("change", () => order(media)); // event sur le changement de tri
   updateTotalLikes();
   photographerPrice(photographers);
 }
