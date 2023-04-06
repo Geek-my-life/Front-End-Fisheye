@@ -48,6 +48,10 @@ class ContactForm {
     // envoi formulaire
     this.form.addEventListener("submit", (e) => {
       this.send(e);
+      console.log(this.firstName.value);
+      console.log(this.lastName.value);
+      console.log(this.email.value);
+      console.log(this.textArea.value);
     });
 
     // verification prenom lors de la saisie
