@@ -1,9 +1,7 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable comma-dangle */
-/* eslint-disable linebreak-style */
-/* eslint-disable quotes */
-/* eslint-disable linebreak-style */
-/* eslint-disable eqeqeq */
+/* eslint-disable linebreak-style */ // retire le style de retour à la ligne
+/* eslint-disable comma-dangle */ // retire la virgule
+/* eslint-disable quotes */ // retire l'obligation de mettre des ''
+/* eslint-disable eqeqeq */ // retire les ===
 
 // recuperation de la data
 async function getPhotographers() {

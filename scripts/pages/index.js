@@ -1,6 +1,5 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable quotes */
-/* eslint-disable linebreak-style */
+/* eslint-disable linebreak-style */ // retire le style de retour à la ligne
+/* eslint-disable quotes */ // retire l'obligation de mettre des ''
 
 // recuperation de la data
 async function getPhotographers() {

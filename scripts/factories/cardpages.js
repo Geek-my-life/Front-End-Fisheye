@@ -1,6 +1,5 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable quotes */
-/* eslint-disable linebreak-style */
+/* eslint-disable linebreak-style */ // retire le style de retour à la ligne
+/* eslint-disable quotes */ // retire l'obligation de mettre des ''
 
 // eslint-disable-next-line no-unused-vars
 class PhotographerPage {
