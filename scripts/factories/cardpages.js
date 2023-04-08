@@ -36,7 +36,7 @@ class PhotographerPage {
 
     // lancement lightbox
     const onSelected = () => {
-      this.onSelectedCb(contactButton); // affichage lightbox en fonction du media sur lequel clic
+      this.onSelectedCb(contactButton); // affichage modal
     };
 
     // pour chaque card, event au click ou en keydown
